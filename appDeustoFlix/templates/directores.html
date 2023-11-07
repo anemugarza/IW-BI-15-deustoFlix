@@ -8,9 +8,7 @@
     {% for director in lista_directores %}
     <h3 id="nombre_director">{{director.nombre}}</h3>
     <p id="info_director"><a href="{% url 'show_director' director.id %}"> Para saber más haz click aquí</a></p>
-    {% with "images/"|add:director.nombre|add:".jpg" as imagen %}
-    <img src="{% static imagen %}" alt="Imagen Director">
-    {% endwith %}
+    <img alt="{{ director.imagen.name }}" src="{% static director.imagen.name %}" />    <img src="{% static imagen %}" alt="Imagen Director">
     {% endfor %}
     {% else %}
     <p id="No director">No hay directores disponibles.</p>

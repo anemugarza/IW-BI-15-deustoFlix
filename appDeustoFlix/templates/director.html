@@ -4,14 +4,13 @@
 <div class="portfolio__inner">
     <h2 class="portfolio__title">{{director.nombre}}</h2>
     <p class="portfolio__descr">Aquí te mostramos informacion acerca del director {{director.nombre}}</p>
-    <ul id="info_pais">
+    <ul id="info_director">
         <li>Nombre: {{director.nombre}}</li>
         <li>Fecha nacimiento: {{director.fecha_nacimiento}}</li>
         <li>Nacionalidad: {{director.nacionalidad}}</li>
         <li>Premiado: {{director.premiado}}</li>
     </ul>
-    {% with "images/"|add:director.nombre|add:".jpg" as imagen %}
-    <img src="{% static imagen %}" alt="Imagen Destino">
+    <img alt="{{ director.imagen.name }}" src="{% static director.imagen.name %}" />    <img src="{% static imagen %}" alt="Imagen Director">
     {% endwith %}
 </div>
 {% endblock %}

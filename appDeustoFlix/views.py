@@ -35,7 +35,7 @@ def index_directores(request):
 
 #devuelve los datos de un director
 def show_director(request, director_id):
-	director = get_object_or_404(Genero, pk=director_id)
+	director = get_object_or_404(Director, pk=director_id)
 	context = {'director': director }
 	return render(request, 'director.html', context)
 

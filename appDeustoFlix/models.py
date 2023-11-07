@@ -16,6 +16,8 @@ class Director(models.Model):
     fecha_nacimiento = models.DateField()  
     nacionalidad = models.CharField(max_length=70)
     premiado = (models.BooleanField(default=False))
+    imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
+
 
     def __str__(self) -> str:
         return self.nombre

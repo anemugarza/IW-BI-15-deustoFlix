@@ -8,9 +8,6 @@
     {% for genero in lista_generos %}
     <h3 id="nombre_genero">{{genero.nombre}}</h3>
     <p id="info_genero"><a href="{% url 'show_genero' genero.id %}"> Para saber más haz click aquí</a></p>
-    {% with "images/"|add:genero.nombre|add:".jpg" as imagen %}
-    <img src="{% static imagen %}" alt="Imagen Genero">
-    {% endwith %}
     {% endfor %}
     {% else %}
     <p id="No generos">No hay generos disponibles.</p>

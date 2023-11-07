@@ -4,12 +4,9 @@
 <div class="portfolio__inner">
     <h2 class="portfolio__title">{{genero.nombre}}</h2>
     <p class="portfolio__descr">Aquí te mostramos informacion acerca del género: {{genero.nombre}}</p>
-    <ul id="info_pais">
+    <ul id="info_genero">
         <li>Nombre: {{genero.nombre}}</li>
         <li>Apto para todos los públicos: {{genero.apto_para_todos}}</li>
     </ul>
-    {% with "images/"|add:genero.nombre|add:".jpg" as imagen %}
-    <img src="{% static imagen %}" alt="Imagen Genero">
-    {% endwith %}
 </div>
 {% endblock %}
