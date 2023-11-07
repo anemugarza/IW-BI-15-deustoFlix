@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<div class="portfolio__inner">
+    <h2 class="portfolio__title">Directores</h2>
+    <p class="portfolio__descr">Aquí te mostramos informacion acerca de los directores de cine.</p>
+    {% if lista_directores %}
+    {% for director in lista_directores %}
+    <h3 id="nombre_director">{{director.nombre}}</h3>
+    <p id="info_directpr"><a href="{% url 'show_director' director.id %}"> Para saber más haz click aquí</a></p>
+    {% with "images/"|add:director.nombre|add:".jpg" as imagen %}
+    <img src="{% static imagen %}" alt="Imagen Director">
+    {% endwith %}
+    {% endfor %}
+    {% else %}
+    <p id="No director">No hay directores disponibles.</p>
+    {% endif %}
+</div>
+{% endblock %}

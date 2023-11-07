@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<div class="portfolio__inner">
+    <h2 class="portfolio__title">{{director.nombre}}</h2>
+    <p class="portfolio__descr">Aquí te mostramos informacion acerca del director {{director.nombre}}</p>
+    <ul id="info_pais">
+        <li>Nombre: {{director.nombre}}</li>
+        <li>Fecha nacimiento: {{director.fecha_nacimiento}}</li>
+        <li>Nacionalidad: {{director.nacionalidad}}</li>
+        <li>Premiado: {{director.premiado}}</li>
+    </ul>
+    {% with "images/"|add:director.nombre|add:".jpg" as imagen %}
+    <img src="{% static imagen %}" alt="Imagen Destino">
+    {% endwith %}
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<div class="portfolio__inner">
+    <h2 class="portfolio__title">Generos</h2>
+    <p class="portfolio__descr">Aquí te mostramos informacion acerca de nuestros generos.</p>
+    {% if lista_generos %}
+    {% for genero in lista_generos %}
+    <h3 id="nombre_genero">{{genero.nombre}}</h3>
+    <p id="info_genero"><a href="{% url 'show_genero' genero.id %}"> Para saber más haz click aquí</a></p>
+    {% with "images/"|add:genero.nombre|add:".jpg" as imagen %}
+    <img src="{% static imagen %}" alt="Imagen Genero">
+    {% endwith %}
+    {% endfor %}
+    {% else %}
+    <p id="No generos">No hay generos disponibles.</p>
+    {% endif %}
+</div>
+{% endblock %}

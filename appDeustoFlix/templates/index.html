@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<div class="portfolio__inner">
+    <h2 class="portfolio__title">Películas más vistas de cada género</h2>
+    {% if lista_peliculasMasVistas %}
+    {% for pelicula in lista_peliculasMasVistas %}
+    <h3 id="nombre">{{pelicula.nombre}}</h3>
+    <div class="pelicula_masVista">
+        "{{pelicula.nombre}}" (Visualizaciones: {{pelicula.vecesVista}})
+    </div>
+    <img alt="{{ pelicula.imagen.name }}" src="{% static pelicula.imagen.name %}" />
+</div>
+
+<!-- About Section -->
+<div class="w3-container w3-padding-32 w3-center">  
+    <h3>About DeustoFlix</h3><br>
+    <h6><i>Tu web ideal para buscar las peliculas mas taquilleras</i></h6>
+    <p>La web donde podrás encontrar toda la informacion sobre las peliculas mas taquilleras. Podrás buscar dependiendo de tu género o director preferidos.</p>
+</div>
+{% endwith %}
+{% endfor %}
+{% endif %}
+{% endblock %}

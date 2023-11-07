@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<div class="portfolio__inner">
+    <h2 class="portfolio__title">{{pelicula.nombre}}</h2>
+    <p class="portfolio__descr">Aquí te mostramos informacion acerca de nuestro destino {{pais.nombre}}</p>
+    <ul id="info_pais">
+        <li>Nombre: {{pelicula.nombre}}</li>
+        <li>Genero: {{genero}}</li>
+        <li>Director: {{directores}}</li>
+        <li>Fecha estreno: {{pelicula.fecha_estreno}}</li>
+        <li>Duración: {{pelicula.duracion}}</li>
+        <li>Recomendación edad: {{pelicula.recomendacionEdad}}</li>
+        <li>Visualizaciones: {{pelicula.vecesVista}}</li>
+    </ul>
+    {% with "images/"|add:pelicula.nombre|add:".jpg" as imagen %}
+    <img src="{% static imagen %}" alt="Imagen Pelicula">
+    {% endwith %}
+</div>
+{% endblock %}

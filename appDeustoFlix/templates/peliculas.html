@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+<div class="portfolio__inner">
+    <h2 class="portfolio__title">Peliculas</h2>
+    <p class="portfolio__descr">Aquí te mostramos todas las peliculas disponibles</p>
+    {% if lista %}
+    {% for pelicula in lista_peliculas %}
+    <h3 id="nombre_pelicula">{{pelicula.nombre}}</h3>
+    <p id="info_pelicula"><a href="{% url 'show_pelicula' pelicula.id %}"> Para saber más haz click aquí</a></p>
+    {% with "images/"|add:pelicula.nombre|add:".jpg" as imagen %}
+    <img src="{% static imagen %}" alt="Imagen Pelicula">
+    {% endwith %}
+    {% endfor %}
+    {% else %}
+    <p id="No peliculas">No hay peliculas disponibles.</p>
+    {% endif %}
+</div>
+{% endblock %}
