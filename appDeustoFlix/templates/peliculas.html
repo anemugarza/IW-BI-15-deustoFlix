@@ -5,13 +5,17 @@
     <h2 class="portfolio__title">Peliculas</h2>
     <p class="portfolio__descr">Aquí te mostramos todas las peliculas disponibles</p>
     {% if lista_peliculas %}
-    {% for pelicula in lista_peliculas %}
-    <h3 id="nombre_pelicula">{{pelicula.nombre}}</h3>
-    <p id="info_pelicula"><a href="{% url 'show_pelicula' pelicula.id %}"> Para saber más haz click aquí</a></p>
-    <img alt="{{ pelicula.imagen.name }}" src="{% static pelicula.imagen.name %}" />    <img src="{% static imagen %}" alt="Imagen Pelicula">
-    {% endfor %}
+        {% for pelicula in lista_peliculas %}
+        <h3 id="nombre_pelicula">{{pelicula.nombre}}</h3>
+        <p id="info_pelicula"><a href="{% url 'show_pelicula' pelicula.id %}"> Para saber más haz click aquí</a></p>
+        {% with pelicula.imagen.name|slice:"4:" as sin_img %}
+            {% with 'images/'|add:sin_img as imagen%}
+                <img src="{% static imagen %}" alt="Imagen Pelicula">
+            {% endwith %}
+        {% endwith %}
+        {% endfor %}
     {% else %}
-    <p id="No peliculas">No hay peliculas disponibles.</p>
+        <p id="No peliculas">No hay peliculas disponibles.</p>
     {% endif %}
 </div>
 {% endblock %}

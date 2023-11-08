@@ -5,13 +5,17 @@
     <h2 class="portfolio__title">Directores</h2>
     <p class="portfolio__descr">Aquí te mostramos informacion acerca de los directores de cine.</p>
     {% if lista_directores %}
-    {% for director in lista_directores %}
-    <h3 id="nombre_director">{{director.nombre}}</h3>
-    <p id="info_director"><a href="{% url 'show_director' director.id %}"> Para saber más haz click aquí</a></p>
-    <img alt="{{ director.imagen.name }}" src="{% static director.imagen.name %}" />    <img src="{% static imagen %}" alt="Imagen Director">
-    {% endfor %}
+        {% for director in lista_directores %}
+            <h3 id="nombre_director">{{director.nombre}}</h3>
+            <p id="info_director"><a href="{% url 'show_director' director.id %}"> Para saber más haz click aquí</a></p>
+            {% with director.imagen.name|slice:"4:" as sin_img %}
+                    {% with 'images/'|add:sin_img as imagen%}
+                        <img src="{% static imagen %}" alt="Imagen Director">
+                    {% endwith %}
+            {% endwith %}  
+        {% endfor %}
     {% else %}
-    <p id="No director">No hay directores disponibles.</p>
+        <p id="No director">No hay directores disponibles.</p>
     {% endif %}
 </div>
 {% endblock %}

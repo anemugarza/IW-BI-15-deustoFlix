@@ -13,8 +13,11 @@
         <li>Recomendación edad: {{pelicula.recomendacionEdad}}</li>
         <li>Visualizaciones: {{pelicula.vecesVista}}</li>
     </ul>
-    {% with "images/"|add:pelicula.nombre|add:".jpg" as imagen %}
-    <img src="{% static imagen %}" alt="Imagen Pelicula">
+
+    {% with pelicula.imagen.name|slice:"4:" as sin_img %}
+            {% with 'images/'|add:sin_img as imagen%}
+                <img src="{% static imagen %}" alt="Imagen Pelicula">
+            {% endwith %}
     {% endwith %}
 </div>
 {% endblock %}

@@ -10,6 +10,10 @@
         <li>Nacionalidad: {{director.nacionalidad}}</li>
         <li>Premiado: {{director.premiado}}</li>
     </ul>
-    <img alt="{{ director.imagen.name }}" src="{% static director.imagen.name %}" />    <img src="{% static imagen %}" alt="Imagen Director">
+    {% with director.imagen.name|slice:"4:" as sin_img %}
+            {% with 'images/'|add:sin_img as imagen%}
+                <img src="{% static imagen %}" alt="Imagen Director">
+            {% endwith %}
+    {% endwith %}
 </div>
 {% endblock %}
