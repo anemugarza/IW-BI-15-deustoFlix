@@ -107,8 +107,11 @@ body {
     text-align: center;
 }
 
-h3 {
-    font-size: 24px;
+.nombre {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 p {
@@ -147,21 +150,21 @@ button {
     align-items: center; /* Centra verticalmente los elementos en el contenedor */
   }
   
-  .info-left {
-    flex: 1; /* Ocupa el espacio disponible a la izquierda */
-    padding: 20px; /* Añade espaciado alrededor de la información */
-    box-sizing: border-box; /* Asegura que el espaciado se incluya en el ancho */
-  }
-  
-  .image-right {
-    flex: 1; /* Ocupa el espacio disponible a la derecha */
-    text-align: center; /* Centra el contenido horizontalmente */
-  }
-  
-  .image-right img {
-    max-width: 100%; /* Ajusta el ancho máximo de la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-  }
+.info-left {
+  flex: 1; /* Ocupa el espacio disponible a la izquierda */
+  padding: 20px; /* Añade espaciado alrededor de la información */
+  box-sizing: border-box; /* Asegura que el espaciado se incluya en el ancho */
+}
+
+.image-right {
+  flex: 1; /* Ocupa el espacio disponible a la derecha */
+  text-align: center; /* Centra el contenido horizontalmente */
+}
+
+.image-right img {
+  max-width: 100%; /* Ajusta el ancho máximo de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
   
  
   
