@@ -17,6 +17,19 @@ body {
   .w3-sidebar a {
     color: white;
   }
+  .w3-center {
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.w3-padding-16 {
+    padding: 16px; /* Agrega espacio alrededor del texto */
+    background-color: #333; /* Cambia el color de fondo */
+    color: #fff; /* Cambia el color del texto a blanco */
+    font-size: 36px; /* Ajusta el tamaño del texto */
+    font-weight: bold; /* Hace que el texto sea negrita */
+    border-radius: 10px; /* Agrega bordes redondeados */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega sombra al texto */
+}
   
   /* Estilos específicos para la barra de navegación */
   #mySidebar {
@@ -129,6 +142,27 @@ button {
     font-weight: bold;
 }
 
+.infoEsp {
+    display: flex; /* Utiliza un contenedor flexible */
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
+  }
+  
+  .info-left {
+    flex: 1; /* Ocupa el espacio disponible a la izquierda */
+    padding: 20px; /* Añade espaciado alrededor de la información */
+    box-sizing: border-box; /* Asegura que el espaciado se incluya en el ancho */
+  }
+  
+  .image-right {
+    flex: 1; /* Ocupa el espacio disponible a la derecha */
+    text-align: center; /* Centra el contenido horizontalmente */
+  }
+  
+  .image-right img {
+    max-width: 100%; /* Ajusta el ancho máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+  
  
   
  

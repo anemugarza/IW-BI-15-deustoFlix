@@ -41,19 +41,27 @@ def show_director(request, director_id):
 
 #devuelve las peliculas de un genero
 def peliculasGenero(request, genero_id):
-	genero = get_object_or_404(Genero, pk=genero_id)
-	peliculasGenero =  genero.pelicula_set.all()
-	context = {'genero': genero, 'peliculas' : peliculasGenero }
-	return render(request, 'pelicula.html', context)
+	genero = Genero.objects.filter(pk=genero_id)  
+	peliculasGenero = Pelicula.objects.filter(genero=genero) 
+	context = {'genero': genero ,'peliculasGenero' : peliculasGenero }
+	return render(request, 'peliculas.html', context)
+
+#devuelve las peliculas de un director
+def peliculasDirector(request, director_nombre):
+	director = Director.objects.get(pk=director_nombre)  
+	peliculasDirector = Pelicula.objects.filter(director=director) 
+	context = {'director': director, 'peliculasDirector' : peliculasDirector }
+	return render(request, 'peliculas.html', context)
 
 
 #Devuelve la pelicula mas vista de cada genero
 def indexPortada(request):
-    generos = Genero.objects.order_by("nombre")
-    peliculas = [
-        Pelicula.objects.filter(genero=genero).order_by("vecesVista").first()
-        for genero in generos
-    ]
-    peliculasMasVistas = zip(generos, peliculas)
+    generos = Genero.objects.all()
+    peliculasMasVistas = []  # Una lista de objetos de modelo Pelicula
+
+    for genero in generos:
+        pelicula_mas_vista = Pelicula.objects.filter(genero=genero).order_by('-vecesVista').first()
+        if pelicula_mas_vista:
+            peliculasMasVistas.append(pelicula_mas_vista)
     context = {"lista_peliculasMasVistas": peliculasMasVistas}
     return render(request, "index.html", context)

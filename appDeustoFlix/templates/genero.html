@@ -9,4 +9,14 @@
         <li>Apto para todos los públicos: {{genero.apto_para_todos}}</li>
     </ul>
 </div>
+
+<div class="peliculasFiltradas">
+    <p class="portfolio__descr">Películas de {{genero.nombre}}</p> 
+    
+
+    {% block pFiltradas %}
+   
+    {% endblock %}
+
+</div>
 {% endblock %}

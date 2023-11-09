@@ -25,9 +25,7 @@ class Director(models.Model):
 class Pelicula(models.Model):
     nombre = models.CharField(max_length=70)  #Nombre de la película
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)  # Género de la película
-    director = models.ManyToManyField(
-            Director
-        )  # Una película puede tener varios directores    
+    director = models.ManyToManyField(Director)    
     fecha_estreno = models.DateField()  
     duracion = models.IntegerField()
     recomendacionEdad = models.IntegerField()  

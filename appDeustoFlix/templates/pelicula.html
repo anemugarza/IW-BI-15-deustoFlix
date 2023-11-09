@@ -2,22 +2,32 @@
 {% load static %}
 {% block contenido %}
 <div class="portfolio__inner">
-    <h2 class="portfolio__title">{{pelicula.nombre}}</h2>
-    <p class="portfolio__descr">Aquí te mostramos informacion acerca de la pelicula: {{pais.nombre}}</p>
-    <ul id="info_pais">
-        <li>Nombre: {{pelicula.nombre}}</li>
-        <li>Genero: {{genero}}</li>
-        <li>Director: {{directores}}</li>
-        <li>Fecha estreno: {{pelicula.fecha_estreno}}</li>
-        <li>Duración: {{pelicula.duracion}}</li>
-        <li>Recomendación edad: {{pelicula.recomendacionEdad}}</li>
-        <li>Visualizaciones: {{pelicula.vecesVista}}</li>
-    </ul>
-
-    {% with pelicula.imagen.name|slice:"4:" as sin_img %}
-            {% with 'images/'|add:sin_img as imagen%}
-                <img src="{% static imagen %}" alt="Imagen Pelicula">
+    <div class="infoEsp">
+        <div class="info-left">
+            <h2 class="portfolio__title">{{ pelicula.nombre }}</h2>
+            <p class="portfolio__descr">Aquí te mostramos información acerca de la película: {{ pais.nombre }}</p>
+            <ul id="info_pais">
+                <li>Nombre: {{ pelicula.nombre }}</li>
+                <li>Genero: <a href="{% url 'show_genero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
+                <li>Director(es):</li>
+                <ul id = "directores">
+                    {% for director in pelicula.director.all %}
+                        <li>  <a href="{% url 'show_director' director.id %}">{{ director.nombre }}</a></li>
+                    {% endfor %}
+                </ul>
+             <li>Fecha estreno: {{ pelicula.fecha_estreno }}</li>
+                <li>Duración: {{ pelicula.duracion }} minutos</li>
+                <li>Recomendación edad: {{ pelicula.recomendacionEdad }} años</li>
+                <li>Visualizaciones: {{ pelicula.vecesVista }}</li>
+            </ul>
+        </div>
+        <div class="image-right">
+            {% with pelicula.imagen.name|slice:"4:" as sin_img %}
+                {% with 'images/'|add:sin_img as imagen %}
+                    <img src="{% static imagen %}" alt="Imagen Pelicula">
+                {% endwith %}
             {% endwith %}
-    {% endwith %}
+        </div>
+    </div>
 </div>
 {% endblock %}
