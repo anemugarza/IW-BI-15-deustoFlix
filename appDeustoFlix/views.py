@@ -12,8 +12,10 @@ def index_generos(request):
 #devuelve los datos de un genero
 def show_genero(request, genero_id):
 	genero = get_object_or_404(Genero, pk=genero_id)
-	context = {'genero': genero }
+	peliculasGenero = Pelicula.objects.filter(genero=genero) 
+	context = {'genero': genero ,'peliculasGenero' : peliculasGenero }	
 	return render(request, 'genero.html', context)
+
 
 #devuelve el listado de peliculas
 def index_peliculas(request):
@@ -36,22 +38,9 @@ def index_directores(request):
 #devuelve los datos de un director
 def show_director(request, director_id):
 	director = get_object_or_404(Director, pk=director_id)
-	context = {'director': director }
-	return render(request, 'director.html', context)
-
-#devuelve las peliculas de un genero
-def peliculasGenero(request, genero_id):
-	genero = Genero.objects.filter(pk=genero_id)  
-	peliculasGenero = Pelicula.objects.filter(genero=genero) 
-	context = {'genero': genero ,'peliculasGenero' : peliculasGenero }
-	return render(request, 'peliculas.html', context)
-
-#devuelve las peliculas de un director
-def peliculasDirector(request, director_nombre):
-	director = Director.objects.get(pk=director_nombre)  
 	peliculasDirector = Pelicula.objects.filter(director=director) 
-	context = {'director': director, 'peliculasDirector' : peliculasDirector }
-	return render(request, 'peliculas.html', context)
+	context = {'director': director , 'peliculasDirector':peliculasDirector}
+	return render(request, 'director.html', context)
 
 
 #Devuelve la pelicula mas vista de cada genero

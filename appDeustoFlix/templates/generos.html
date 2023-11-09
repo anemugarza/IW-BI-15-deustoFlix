@@ -3,14 +3,15 @@
 {% block contenido %}
 <div class="portfolio__inner">
     <h2 class="portfolio__title">Generos</h2>
-    <p class="portfolio__descr">Aquí te mostramos informacion acerca de nuestros generos.</p>
+    <p class="portfolio__descr">Aquí te mostramos la lista de géneros: </p>
     {% if lista_generos %}
-    {% for genero in lista_generos %}
-    <h3 id="nombre_genero">{{genero.nombre}}</h3>
-    <p id="info_genero"><a href="{% url 'show_genero' genero.id %}"> Para saber más haz click aquí</a></p>
-    {% endfor %}
+        {% for genero in lista_generos %}
+            <ul>
+                <li> <a href="{% url 'show_genero' genero.id %}"> {{genero.nombre}}</a></h3></li>
+            </ul>
+        {% endfor %}
     {% else %}
-    <p id="No generos">No hay generos disponibles.</p>
+        <p id="No generos">No hay generos disponibles.</p>
     {% endif %}
 </div>
 {% endblock %}

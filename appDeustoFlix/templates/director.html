@@ -23,9 +23,10 @@
     </div>
 </div>
 
-<div class="peliculasFiltradas">
+<div class="portfolio__inner">
     <p class="portfolio__descr">Películas dirigidas por {{ director.nombre }}</p>
-    {% if peliculasDirector %}
+    <div class="container">
+        {% if peliculasDirector %}
             {% for pelicula in peliculasDirector %}
                 <div class="entidad">
                     <h3 id="nombre_pelicula">{{ pelicula.nombre }}</h3>
@@ -44,5 +45,6 @@
         {% else %}
             <p id="No_peliculas">No hay películas disponibles.</p>
         {% endif %}
+    </div>
 </div>
 {% endblock %}
