@@ -7,18 +7,18 @@
             <h2 class="portfolio__title">{{ pelicula.nombre }}</h2>
             <p class="portfolio__descr">Aquí te mostramos información acerca de la película: {{ pais.nombre }}</p>
             <ul id="info_pais">
-                <li>Nombre: {{ pelicula.nombre }}</li>
-                <li>Genero: <a href="{% url 'show_genero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
-                <li>Director(es):</li>
+                <li><strong> NOMBRE: </strong>{{ pelicula.nombre }}</li>
+                <li><strong> GENERO: </strong><a href="{% url 'show_genero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
+                <li><strong> DIRECTOR(ES): </strong></li>
                 <ul id = "directores">
                     {% for director in pelicula.director.all %}
                         <li>  <a href="{% url 'show_director' director.id %}">{{ director.nombre }}</a></li>
                     {% endfor %}
                 </ul>
-             <li>Fecha estreno: {{ pelicula.fecha_estreno }}</li>
-                <li>Duración: {{ pelicula.duracion }} minutos</li>
-                <li>Recomendación edad: {{ pelicula.recomendacionEdad }} años</li>
-                <li>Visualizaciones: {{ pelicula.vecesVista }}</li>
+             <li><strong> FECHA ESTRENO: </strong> {{ pelicula.fecha_estreno }}</li>
+                <li><strong> DURACIÓN: </strong>: {{ pelicula.duracion }} minutos</li>
+                <li><strong> RECOMENDACIÓN EDAD: </strong>: {{ pelicula.recomendacionEdad }} años</li>
+                <li><strong> VISUALIZACIONES: </strong> {{ pelicula.vecesVista }}</li>
             </ul>
         </div>
         <div class="image-right">
