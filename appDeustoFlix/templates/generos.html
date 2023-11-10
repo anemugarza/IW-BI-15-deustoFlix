@@ -7,7 +7,7 @@
     {% if lista_generos %}
         {% for genero in lista_generos %}
             <ul>
-                <li> <a href="{% url 'show_genero' genero.id %}"> {{genero.nombre}}</a></h3></li>
+                <li> <a href="{% url 'show_genero' genero.id %}"> {{genero.nombre}}</a></li>
             </ul>
         {% endfor %}
     {% else %}

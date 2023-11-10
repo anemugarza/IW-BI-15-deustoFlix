@@ -10,12 +10,14 @@
                 <li><strong> NOMBRE: </strong>{{ pelicula.nombre }}</li>
                 <li><strong> GENERO: </strong><a href="{% url 'show_genero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
                 <li><strong> DIRECTOR(ES): </strong></li>
-                <ul id = "directores">
+                <li>
+                    <ul id = "directores">
                     {% for director in pelicula.director.all %}
                         <li>  <a href="{% url 'show_director' director.id %}">{{ director.nombre }}</a></li>
                     {% endfor %}
-                </ul>
-             <li><strong> FECHA ESTRENO: </strong> {{ pelicula.fecha_estreno }}</li>
+                    </ul>
+                </li>
+                <li><strong> FECHA ESTRENO: </strong> {{ pelicula.fecha_estreno }}</li>
                 <li><strong> DURACIÓN: </strong>: {{ pelicula.duracion }} minutos</li>
                 <li><strong> RECOMENDACIÓN EDAD: </strong>: {{ pelicula.recomendacionEdad }} años</li>
                 <li><strong> VISUALIZACIONES: </strong> {{ pelicula.vecesVista }}</li>
