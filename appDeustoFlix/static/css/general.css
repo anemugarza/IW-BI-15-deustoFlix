@@ -1,164 +1,157 @@
 /* Estilos generales para toda la página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-  }
-  
-  .w3-top {
-    background-color: #333;
-    color: white;
-  }
-  
-  .w3-sidebar {
-    background-color: #333;
-    color: white;
-  }
-  
-  .w3-sidebar a {
-    color: white;
-  }
-  .w3-center {
-    text-align: center; /* Centra el texto horizontalmente */
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.w3-top {
+  background-color: #333;
+  color: white;
+}
+
+.w3-sidebar {
+  background-color: #333;
+  color: white;
+}
+
+.w3-sidebar a {
+  color: white;
+}
+
+.w3-center {
+  text-align: center;
 }
 
 .w3-padding-16 {
-    padding: 16px; /* Agrega espacio alrededor del texto */
-    background-color: #333; /* Cambia el color de fondo */
-    color: #fff; /* Cambia el color del texto a blanco */
-    font-size: 36px; /* Ajusta el tamaño del texto */
-    font-weight: bold; /* Hace que el texto sea negrita */
-    border-radius: 10px; /* Agrega bordes redondeados */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega sombra al texto */
+  padding: 16px;
+  background-color: #333;
+  color: #fff;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-  
-  /* Estilos específicos para la barra de navegación */
-  #mySidebar {
-    width: 250px;
-  }
-  
-  /* Estilos específicos para el contenido principal */
-  .w3-main {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Estilos para las imágenes */
-  img {
-    width: 200px;
-    height: 300px;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  /* Estilos para el título "PELÍCULAS" (H2) */
+
+#mySidebar {
+  width: 250px;
+}
+
+.w3-main {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  width: 200px;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
 .portfolio__title {
-    text-transform: uppercase;
-    font-size: 36px; /* Tamaño de fuente personalizable */
-    font-weight: bold; /* Texto en negritas */
-    margin: 20px 0;
-  }
-  
-  
-  
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 20px 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  
+}
 
-  /* Estilos para el mensaje "No hay películas disponibles" */
-  #No_peliculas {
-    font-size: 18px;
-    color: #333;
-    margin-top: 10px;
-  }
-  
+#No_peliculas {
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
 
-/* Estilos para el contenedor de películas */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  /* Estilos para cada película */
-  .entidad {
-    width: calc(25% - 20px); /* 25% del ancho total con margen de 20px entre películas */
-    margin: 10px; /* Espacio entre películas */
-    box-sizing: border-box; /* Incluye el margen en el ancho total */
-    text-align: center;
-  }
-    /* Estilos para los nombres de las películas */
-    .nombre {
-      font-size: 18px;
-      text-transform: uppercase;
-      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-  
-  .site-footer {
-    background-color: #333;
-    color: white;
-    padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.entidad {
+  width: calc(25% - 20px);
+  margin: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.nombrePelicula {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.site-footer {
+  background-color: #333;
+  color: white;
+  padding: 30px 0;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contact-info, .newsletter {
-    padding: 20px;
-    text-align: center;
+.contact-info,
+.newsletter {
+  padding: 20px;
+  text-align: center;
 }
 
 p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
 }
 
 button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .infoEsp {
-    display: flex; /* Utiliza un contenedor flexible */
-    align-items: center; /* Centra verticalmente los elementos en el contenedor */
-  }
-  
+  display: flex;
+  align-items: center;
+}
+
 .info-left {
-  flex: 1; /* Ocupa el espacio disponible a la izquierda */
-  padding: 20px; /* Añade espaciado alrededor de la información */
-  box-sizing: border-box; /* Asegura que el espaciado se incluya en el ancho */
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .image-right {
-  flex: 1; /* Ocupa el espacio disponible a la derecha */
-  text-align: center; /* Centra el contenido horizontalmente */
+  flex: 1;
+  text-align: center;
 }
 
 .image-right img {
-  max-width: 100%; /* Ajusta el ancho máximo de la imagen */
-  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: 100%;
+  height: auto;
 }
+
   
  
   
