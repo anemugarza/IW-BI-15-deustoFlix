@@ -54,3 +54,15 @@ def indexPortada(request):
             peliculasMasVistas.append(pelicula_mas_vista)
     context = {"lista_peliculasMasVistas": peliculasMasVistas}
     return render(request, "index.html", context)
+
+
+class Contacto(View):
+    def get(self, request):
+        context = {}
+        return render(request, "contacto.html", context)
+    
+    def post(self, request):
+        # Añade el mensaje enviado (con sus metadatos) al registro
+        with open("mensajes.json", "a", encoding = "utf-8") as f:
+            json.dump(request.POST, f, indent = 4)
+        return HttpResponseRedirect("/") # Redirige a la página de inicio
