@@ -32,8 +32,16 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-#mySidebar {
-  width: 250px;
+.mySidebar {
+  width:40%;
+  display:none;
+  z-index:2;
+  min-width:300px;
+}
+
+.textDer{
+  max-width:1200px;
+  margin:auto;
 }
 
 .w3-main {
@@ -152,8 +160,10 @@ button {
   height: auto;
 }
 
-  
+.separador{
+  clear: both;
+}
  
-  
+
  
   
