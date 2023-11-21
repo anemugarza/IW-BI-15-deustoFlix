@@ -5,8 +5,8 @@
     <h2 class="portfolio__title">Directores</h2>
     <p class="portfolio__descr">Aquí te mostramos la lista de directores de cine disponibles</p>
     <div class="container">
-        {% if lista_directores %}
-            {% for director in lista_directores %}
+        {% if object_list %}
+            {% for director in object_list %}
                 <div class="entidad">
                     <h3 id="nombre{{ director.id }}">{{director.nombre}}</h3>
                     {% with director.imagen.name|slice:"4:" as sin_img %}

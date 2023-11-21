@@ -5,8 +5,8 @@
     <h2 class="portfolio__title">Películas</h2>
     <p class="portfolio__descr">Aquí te mostramos todas las peliculas disponibles</p>
     <div class="container">
-        {% if lista_peliculas %}
-            {% for pelicula in lista_peliculas %}
+        {% if object_list %}
+            {% for pelicula in object_list %}
                 <div class="entidad">
                     <h3 id="nombre{{ pelicula.id }}">{{ pelicula.nombre }}</h3>
                     {% with pelicula.imagen.name|slice:"4:" as sin_img %}

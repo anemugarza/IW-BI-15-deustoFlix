@@ -4,8 +4,8 @@
 <div class="portfolio__inner">
     <h2 class="portfolio__title">Géneros</h2>
     <p class="portfolio__descr">Aquí te mostramos la lista de géneros: </p>
-    {% if lista_generos %}
-        {% for genero in lista_generos %}
+    {% if object_list %}
+        {% for genero in object_list%}
             <ul>
                 <li> <a href="{% url 'show_genero' genero.id %}"> {{genero.nombre}}</a></li>
             </ul>

@@ -2,58 +2,65 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404, HttpRes
 from django.http import HttpResponse
 from .models import Genero, Pelicula, Director
 from django.views import View
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+import json
+
 
 #devuelve el listado de generos
-def index_generos(request):
-	generos = get_list_or_404(Genero.objects.order_by('nombre'))
-	context = {'lista_generos': generos }
-	return render(request, 'generos.html', context)
+class IndexGeneros(ListView):
+	model = Genero
+	queryset = Genero.objects.all()
 
 #devuelve los datos de un genero
-def show_genero(request, genero_id):
-	genero = get_object_or_404(Genero, pk=genero_id)
-	peliculasGenero = Pelicula.objects.filter(genero=genero) 
-	context = {'genero': genero ,'peliculasGenero' : peliculasGenero }	
-	return render(request, 'genero.html', context)
+class ShowGenero(DetailView):
+	def show_genero(request, genero_id):
+		genero = get_object_or_404(Genero, pk=genero_id)
+		peliculasGenero = genero.pelicula_set.all()
+		context = {'genero': genero ,'peliculasGenero' : peliculasGenero }	
+		return render(request, 'genero.html', context)
 
 
 #devuelve el listado de peliculas
-def index_peliculas(request):
-	peliculas = get_list_or_404(Pelicula.objects.order_by('nombre'))
-	context = {'lista_peliculas': peliculas }
-	return render(request, 'peliculas.html', context)
+class IndexPeliculas(ListView):
+	model = Pelicula
+	queryset = Pelicula.objects.all()
 
 #devuelve los datos de una pelicula
-def show_pelicula(request, pelicula_id):
-	pelicula = get_object_or_404(Pelicula, pk=pelicula_id)
-	context = {'pelicula': pelicula }
-	return render(request, 'pelicula.html', context)
+class ShowPelicula(DetailView):
+	def show_pelicula(request, pelicula_id):
+		pelicula = get_object_or_404(Pelicula, pk=pelicula_id)
+		context = {'pelicula': pelicula }
+		return render(request, 'pelicula.html', context)
 
 #devuelve el listado de directores
-def index_directores(request):
-	directores = get_list_or_404(Director.objects.order_by('nombre'))
-	context = {'lista_directores': directores }
-	return render(request, 'directores.html', context)
+class IndexDirectores(ListView):
+	model = Director
+	queryset = Director.objects.all()
 
 #devuelve los datos de un director
-def show_director(request, director_id):
-	director = get_object_or_404(Director, pk=director_id)
-	peliculasDirector = Pelicula.objects.filter(director=director) 
-	context = {'director': director , 'peliculasDirector':peliculasDirector}
-	return render(request, 'director.html', context)
+class ShowDirector(DetailView):
+	def show_director(request, director_id):
+		director = get_object_or_404(Director, pk=director_id)
+		peliculasDirector = director.pelicula_set.all()
+		context = {'director': director , 'peliculasDirector':peliculasDirector}
+		return render(request, 'director.html', context)
 
 
 #Devuelve la pelicula mas vista de cada genero
-def indexPortada(request):
-    generos = Genero.objects.all()
-    peliculasMasVistas = []  # Una lista de objetos de modelo Pelicula
+class IndexPortada(View):
+	def indexPortada(request):
+		generos = Genero.objects.all()
+		peliculasMasVistas = []  # Una lista de objetos de modelo Pelicula
 
-    for genero in generos:
-        pelicula_mas_vista = Pelicula.objects.filter(genero=genero).order_by('-vecesVista').first()
-        if pelicula_mas_vista:
-            peliculasMasVistas.append(pelicula_mas_vista)
-    context = {"lista_peliculasMasVistas": peliculasMasVistas}
-    return render(request, "index.html", context)
+		for genero in generos:
+			pelicula_mas_vista = Pelicula.objects.filter(genero=genero).order_by('-vecesVista').first()
+			if pelicula_mas_vista:
+				peliculasMasVistas.append(pelicula_mas_vista)
+		context = {"lista_peliculasMasVistas": peliculasMasVistas}
+		return render(request, "index.html", context)
+
+
 
 
 class Contacto(View):
