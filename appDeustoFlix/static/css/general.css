@@ -7,11 +7,24 @@ body {
 .w3-top {
   background-color: #333;
   color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .w3-sidebar {
   background-color: #333;
   color: white;
+  display: none;
+  z-index: 2;
+  width: 40%;
+  min-width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 
 .w3-sidebar a {
@@ -39,15 +52,12 @@ body {
   min-width:300px;
 }
 
-.textDer{
-  max-width:1200px;
-  margin:auto;
-}
 
 .w3-main {
   background-color: white;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 100px;
 }
 
 img {
@@ -93,19 +103,21 @@ img {
 .site-footer {
   background-color: #333;
   color: white;
-  padding: 30px 0;
+  padding: 2em 0;
 }
 
 .footer-content {
   display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .contact-info,
 .newsletter {
   padding: 20px;
   text-align: center;
+  width: 48%;
 }
 
 p {
@@ -164,6 +176,6 @@ button {
   clear: both;
 }
  
-
- 
-  
+#textDer {
+  background-color: white;
+}
