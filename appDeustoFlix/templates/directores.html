@@ -11,7 +11,7 @@
                     <h3 id="nombre{{ director.id }}">{{director.nombre}}</h3>
                     {% with director.imagen.name|slice:"4:" as sin_img %}
                             {% with 'images/'|add:sin_img as imagen%}
-                                <a href="{% url 'show_director' director.id %}">
+                                <a href="{% url 'ShowDirector' director.id %}">
                                 <img src="{% static imagen %}" alt="Imagen Director">
                                 </a>
                             {% endwith %}
