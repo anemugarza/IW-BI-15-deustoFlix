@@ -2,11 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.IndexPortada.as_view(), name='indexPortada'),
-    path('peliculas/<int:pelicula_id>/', views.ShowPelicula.as_view(), name='show_pelicula'),
-    path('directores/<int:director_id>', views.ShowDirector.as_view(), name='show_director'),
-    path('generos/<int:genero_id>', views.ShowGenero.as_view(), name='show_genero'),
-    path("peliculas/", views.IndexPeliculas.as_view(), name="index_peliculas"),
-    path("generos/", views.IndexGeneros.as_view(), name="index_generos"),
-    path("directores/", views.IndexDirectores.as_view(), name="index_directores"),
+    path('', views.indexPortada, name='indexPortada'),
+    path('peliculas/<int:pk>/', views.ShowPelicula.as_view(), name='ShowPelicula'),
+    path('directores/<int:director_id>/', views.ShowDirector.as_view(), name='ShowDirector'),
+    path('generos/<int:genero_id>/', views.ShowGenero.as_view(), name='ShowGenero'),
+    path("peliculas/", views.IndexPeliculas.as_view(), name="IndexPeliculas"),
+    path("generos/", views.IndexGeneros.as_view(), name="IndexGeneros"),
+    path("directores/", views.IndexDirectores.as_view(), name="IndexDirectores"),
 ]

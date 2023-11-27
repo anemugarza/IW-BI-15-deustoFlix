@@ -8,12 +8,12 @@
             <p class="portfolio__descr">Aquí te mostramos información acerca de la película: {{ pais.nombre }}</p>
             <ul id="info_pais">
                 <li><strong> NOMBRE: </strong>{{ pelicula.nombre }}</li>
-                <li><strong> GENERO: </strong><a href="{% url 'show_genero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
+                <li><strong> GENERO: </strong><a href="{% url 'ShowGenero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
                 <li><strong> DIRECTOR(ES): </strong></li>
                 <li>
                     <ul id = "directores">
                     {% for director in pelicula.director.all %}
-                        <li>  <a href="{% url 'show_director' director.id %}">{{ director.nombre }}</a></li>
+                        <li>  <a href="{% url 'ShowDirector' director.id %}">{{ director.nombre }}</a></li>
                     {% endfor %}
                     </ul>
                 </li>
