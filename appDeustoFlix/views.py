@@ -69,3 +69,8 @@ def indexPortada(request):
 	context = {"lista_peliculasMasVistas": peliculasMasVistas}
 	return render(request, "index.html", context)
 
+from django.utils.translation import gettext as _
+
+def my_view(request):
+    output = _("This is a translatable string.")
+    return HttpResponse(output)

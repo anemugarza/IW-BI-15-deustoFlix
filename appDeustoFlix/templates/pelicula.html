@@ -1,32 +1,33 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block contenido %}
 <div class="portfolio__inner">
     <div class="infoEsp">
         <div class="info-left">
-            <h2 class="portfolio__title">{{ pelicula.nombre }}</h2>
-            <p class="portfolio__descr">Aquí te mostramos información acerca de la película: {{ pais.nombre }}</p>
+            <h2 class="portfolio__title">{% trans pelicula.nombre %}</h2>
+            <p class="portfolio__descr">{% trans "Aquí te mostramos información acerca de la película:" %} {{ pais.nombre }}</p>
             <ul id="info_pais">
-                <li><strong> NOMBRE: </strong>{{ pelicula.nombre }}</li>
-                <li><strong> GENERO: </strong><a href="{% url 'ShowGenero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
-                <li><strong> DIRECTOR(ES): </strong></li>
+                <li><strong>{% trans "NOMBRE:" %} </strong>{% trans pelicula.nombre %}</li>
+                <li><strong>{% trans "GENERO:" %} </strong><a href="{% url 'ShowGenero' pelicula.genero.id %}">{% trans pelicula.genero %}</a></li>
+                <li><strong>{% trans "DIRECTOR(ES):" %} </strong></li>
                 <li>
-                    <ul id = "directores">
+                    <ul id="directores">
                     {% for director in pelicula.director.all %}
-                        <li>  <a href="{% url 'ShowDirector' director.id %}">{{ director.nombre }}</a></li>
+                        <li><a href="{% url 'ShowDirector' director.id %}">{% trans director.nombre %}</a></li>
                     {% endfor %}
                     </ul>
                 </li>
-                <li><strong> FECHA ESTRENO: </strong> {{ pelicula.fecha_estreno }}</li>
-                <li><strong> DURACIÓN: </strong>: {{ pelicula.duracion }} minutos</li>
-                <li><strong> RECOMENDACIÓN EDAD: </strong>: {{ pelicula.recomendacionEdad }} años</li>
-                <li><strong> VISUALIZACIONES: </strong> {{ pelicula.vecesVista }}</li>
+                <li><strong>{% trans "FECHA ESTRENO:" %} </strong> {{ pelicula.fecha_estreno }}</li>
+                <li><strong>{% trans "DURACIÓN:" %} </strong>: {{ pelicula.duracion }} {% trans "minutos" %}</li>
+                <li><strong>{% trans "RECOMENDACIÓN EDAD:" %} </strong>: {{ pelicula.recomendacionEdad }} {% trans "años" %}</li>
+                <li><strong>{% trans "VISUALIZACIONES:" %} </strong> {{ pelicula.vecesVista }}</li>
             </ul>
         </div>
         <div class="image-right">
             {% with pelicula.imagen.name|slice:"4:" as sin_img %}
                 {% with 'images/'|add:sin_img as imagen %}
-                    <img src="{% static imagen %}" alt="Imagen Pelicula">
+                    <img src="{% static imagen %}" alt="{% trans 'Imagen Pelicula' %}">
                 {% endwith %}
             {% endwith %}
         </div>
