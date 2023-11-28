@@ -9,5 +9,8 @@ urlpatterns = [
     path('peliculas/', views.IndexPeliculas.as_view(), name="IndexPeliculas"),
     path("generos/", views.IndexGeneros.as_view(), name="IndexGeneros"),
     path("directores/", views.IndexDirectores.as_view(), name="IndexDirectores"),
+    
+    path("contacto/", views.Contacto.as_view(), name="Contacto"),
+
 ]
 
