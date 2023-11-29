@@ -68,7 +68,7 @@ def indexPortada(request):
 			peliculasMasVistas.append(pelicula_mas_vista)
 	context = {"lista_peliculasMasVistas": peliculasMasVistas}
 	return render(request, "index.html", context)
-
+ 
 
 
 
