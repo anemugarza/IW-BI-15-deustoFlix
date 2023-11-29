@@ -5,19 +5,19 @@
 <div class="portfolio__inner">
     <div class="infoEsp">
         <div class="info-left">
-            <h2 class="portfolio__title">{% trans director.nombre %}</h2>
-            <p class="portfolio__descr">{% trans "Aquí te mostramos información acerca del director" %} {{ director.nombre }}</p>
+            <h2 class="portfolio__title">{{ director.nombre }}</h2>
+            <p class="portfolio__descr">Aquí te mostramos información acerca del director {{ director.nombre }}</p>
             <ul id="info_director">
-                <li><strong>{% trans "NOMBRE:" %} </strong> {{ director.nombre }}</li>
-                <li><strong>{% trans "FECHA NACIMIENTO:" %} </strong> {{ director.fecha_nacimiento }}</li>
-                <li><strong>{% trans "NACIONALIDAD:" %} </strong> {{ director.nacionalidad }}</li>
-                <li><strong>{% trans "PREMIADO:" %} </strong> {{ director.premiado }}</li>
+                <li><strong>NOMBRE:</strong> {{ director.nombre }}</li>
+                <li><strong>FECHA NACIMIENTO:</strong> {{ director.fecha_nacimiento }}</li>
+                <li><strong>NACIONALIDAD:</strong> {{ director.nacionalidad }}</li>
+                <li><strong>PREMIADO:</strong> {{ director.premiado }}</li>
             </ul>
         </div>
         <div class="image-right">
             {% with director.imagen.name|slice:"4:" as sin_img %}
                 {% with 'images/'|add:sin_img as imagen %}
-                    <img src="{% static imagen %}" alt="{% trans 'Imagen Director' %}">
+                    <img src="{% static imagen %}" alt="Imagen Director">
                 {% endwith %}
             {% endwith %}
         </div>
@@ -25,7 +25,7 @@
 </div>
 <br><br>
 <div class="portfolio__inner">
-    <p class="portfolio__descr"><u><strong>{% trans "Películas dirigidas por" %} {{ director.nombre }}</strong></u></p>
+    <p class="portfolio__descr"><u><strong>Películas dirigidas por {{ director.nombre }}</strong></u></p>
     <div class="container">
         {% if peliculasDirector %}
             {% for pelicula in peliculasDirector %}
@@ -34,7 +34,7 @@
                     {% with pelicula.imagen.name|slice:"4:" as sin_img %}
                         {% with 'images/'|add:sin_img as imagen %}
                             <a href="{% url 'ShowPelicula' pelicula.id %}">
-                                <img src="{% static imagen %}" alt="{% trans 'Imagen Película' %}">
+                                <img src="{% static imagen %}" alt="Imagen Película">
                             </a>
                         {% endwith %}
                     {% endwith %}
@@ -44,7 +44,7 @@
                 {% endif %}
             {% endfor %}
         {% else %}
-            <p id="No_peliculas">{% trans 'No hay películas disponibles.' %}</p>
+            <p id="No_peliculas">No hay películas disponibles.</p>
         {% endif %}
     </div>
 </div>
