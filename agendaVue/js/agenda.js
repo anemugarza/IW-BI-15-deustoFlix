@@ -1,4 +1,4 @@
-contactoEjemplo = {
+const contactoEjemplo = {
     "nombre": 'John Doe',
     "email": 'john.doe@deusto.es',
     "telf": '555555555'
@@ -16,7 +16,6 @@ new Vue({
     },
     methods: {
         anyadirContacto() {
-
             this.contactos.push({
                 "nombre": this.nuevoContacto.nombre,
                 "email": this.nuevoContacto.email,
