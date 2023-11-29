@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block contenido %}
 <div class="portfolio__inner">
-    <h2 class="portfolio__title">Películas más vistas de cada género</h2>
+    <h2 class="portfolio__title">{% trans "Películas más vistas de cada género" %}</h2>
     <div class="container">
         {% if lista_peliculasMasVistas %}
             {% for pelicula in lista_peliculasMasVistas %}
@@ -11,7 +12,7 @@
                     {% with pelicula.imagen.name|slice:"4:" as sin_img %}
                         {% with 'images/'|add:sin_img as imagen %}
                             <a href="{% url 'ShowPelicula' pelicula.id %}">
-                            <img src="{% static imagen %}" alt="Imagen Pelicula">
+                            <img src="{% static imagen %}" alt="{% trans 'Imagen Pelicula' %}">
                             </a>
                         {% endwith %}
                     {% endwith %}
@@ -21,16 +22,16 @@
                 {% endif %}
             {% endfor %}
         {% else %}
-            <p id="No_peliculas">No hay películas disponibles.</p>
+            <p id="No_peliculas">{% trans 'No hay películas disponibles.' %}</p>
         {% endif %}
     </div>
 </div>
 
 <!-- About Section -->
 <div class="w3-container w3-padding-32 w3-center">  
-    <h3>About DeustoFlix</h3><br>
-    <h6><i>Tu web ideal para buscar las peliculas mas taquilleras</i></h6>
-    <p>La web donde podrás encontrar toda la informacion sobre las peliculas mas taquilleras. Podrás buscar dependiendo de tu género o director preferidos.</p>
+    <h3>{% trans 'About DeustoFlix' %}</h3><br>
+    <h6><i>{% trans 'Tu web ideal para buscar las películas más taquilleras' %}</i></h6>
+    <p>{% trans 'La web donde podrás encontrar toda la información sobre las películas más taquilleras. Podrás buscar dependiendo de tu género o director preferidos.' %}</p>
 </div>
 
 {% endblock %}
