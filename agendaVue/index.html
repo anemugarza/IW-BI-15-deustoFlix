@@ -115,7 +115,7 @@
                 </div>
             </div>
             <!-- CAMBIOS -->
-            <div class="row" v-for="(contacto, index) in contactos" :key="contacto.nombre">
+            <div class="row" v-for="(contacto, index) in contactos" :key="index">
                 <div class="col-xs-4">
                     <p>{{ contacto.nombre }}</p>
                 </div>
@@ -140,8 +140,7 @@
         </div>
 
 
-
-        <!-- Añadir nuevo Section -->
+         <!-- Añadir nuevo Section -->
         <section id="nuevo">
             <div class="container">
                 <div class="row">
@@ -156,25 +155,25 @@
                         <form name="sentMessage" id="contactForm" novalidate @submit.prevent="anyadirContacto">
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Nombre</label>
+                                    <label for="name">Nombre</label>
                                     <!-- AÑADIDO: V-MODEL -->
-                                    <input v-model="nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name">
+                                    <input v-model="nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name" required>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Email</label>
+                                    <label for="email">Email</label>
                                     <!-- AÑADIDO: V-MODEL -->
-                                    <input v-model="nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email">
+                                    <input v-model="nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email" required>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label>Teléfono</label>
+                                    <label for="telf">Teléfono</label>
                                     <!-- AÑADIDO: V-MODEL -->
-                                    <input v-model="nuevoContacto.telf" type="tel" class="form-control" placeholder="Número de teléfono" id="telf">
+                                    <input v-model="nuevoContacto.telf" type="tel" class="form-control" placeholder="Número de teléfono" id="telf" required>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -190,13 +189,9 @@
                 </div>
             </div>
         </section>
-
-
-
-
-
-
     </section>
+
+    
 
 
     
