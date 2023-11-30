@@ -43,7 +43,7 @@
 <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top"> 
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -94,36 +94,23 @@
     </header>
 
     <!-- Contactos Grid Section -->
-    <section id="contactos">
-        <div class="container">
+    <section id="contactos" itemscope itemtype="http://schema.org/ItemList"> <!-- Micro-Semantics (RDFa and Microdata) -->
+        <div class="container" itemprop="ItemList">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contactos</h2>
+                    <h2 itemprop="name">Contactos</h2>
                     <hr class="star-primary">
                 </div>
             </div>
-            <div>
-            <div class="row">
+            <div class="row" v-for="(contacto, index) in contactos" :key="index" itemprop="itemList" itemscope itemtype="http://schema.org/Person"> <!-- Micro-Semantics (RDFa and Microdata) -->
                 <div class="col-xs-4">
-                    <h4>Nombre</h4>
+                    <p itemprop="name">{{ contacto.nombre }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                 </div>
                 <div class="col-xs-4">
-                    <h4>Email</h4>
+                    <p itemprop="email">{{ contacto.email }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                 </div>
                 <div class="col-xs-3">
-                    <h4>Teléfono</h4>
-                </div>
-            </div>
-            <!-- CAMBIOS -->
-            <div class="row" v-for="(contacto, index) in contactos" :key="index">
-                <div class="col-xs-4">
-                    <p>{{ contacto.nombre }}</p>
-                </div>
-                <div class="col-xs-4">
-                    <p>{{ contacto.email }}</p>
-                </div>
-                <div class="col-xs-3">
-                    <p>{{ contacto.telf }}</p>
+                    <p itemprop="telephone">{{ contacto.telf }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                 </div>
                 <div class="col-xs-1">
                     <button class="btn btn-danger btn-sm" @click="borrarContacto(index)">
@@ -136,44 +123,39 @@
                     <p>No se ha encontrado ningún contacto.</p>
                 </div>
             </div>
-            <!-- CAMBIOS -->
         </div>
 
 
-         <!-- Añadir nuevo Section -->
-        <section id="nuevo">
+        <!-- Añadir nuevo Section -->
+        <section id="nuevo" itemscope itemtype="http://schema.org/AddAction"> <!-- Micro-Semantics (RDFa and Microdata) -->
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2>Añadir contacto</h2>
+                        <h2 itemprop="name">Añadir contacto</h2> <!-- Micro-Semantics (RDFa and Microdata) -->
                         <hr class="star-primary">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <!-- AÑADIR @submit.prevent="anyadirContacto" -->
-                        <form name="sentMessage" id="contactForm" novalidate @submit.prevent="anyadirContacto">
+                        <form name="sentMessage" id="contactForm" novalidate @submit.prevent="anyadirContacto"> <!-- AÑADIR @submit.prevent="anyadirContacto" -->
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label for="name">Nombre</label>
-                                    <!-- AÑADIDO: V-MODEL -->
-                                    <input v-model="nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name" required>
+                                    <label for="name" itemprop="name">Nombre</label> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                    <input v-model="nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name" required> <!-- AÑADIDO: V-MODEL -->
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label for="email">Email</label>
-                                    <!-- AÑADIDO: V-MODEL -->
-                                    <input v-model="nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email" required>
+                                    <label for="email" itemprop="email">Email</label> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                    <input v-model="nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email" required> <!-- AÑADIDO: V-MODEL -->
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="row control-group">
                                 <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label for="telf">Teléfono</label>
-                                    <!-- AÑADIDO: V-MODEL -->
-                                    <input v-model="nuevoContacto.telf" type="tel" class="form-control" placeholder="Número de teléfono" id="telf" required>
+                                    <label for="telf" itemprop="telephone">Teléfono</label> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                    <input v-model="nuevoContacto.telf" type="tel" class="form-control" placeholder="Número de teléfono" id="telf" required> <!-- AÑADIDO: V-MODEL -->
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -181,7 +163,7 @@
                             <div id="success"></div>
                             <div class="row">
                                 <div class="form-group col-xs-12">
-                                    <button type="submit" class="btn btn-success btn-lg">Añadir</button>
+                                    <button type="submit" class="btn btn-success btn-lg" itemprop="actionStatus">Añadir</button> <!-- Micro-Semantics (RDFa and Microdata) -->
                                 </div>
                             </div>
                         </form>
@@ -191,53 +173,45 @@
         </section>
     </section>
 
-    
-
-
-    
-
 
     <!-- About Section -->
-    <!-- Micro-Semantics (RDFa and Microdata): AÑADIR itemscope itemtype -->
-    <section class="success" id="about" itemscope itemtype="http://schema.org/LocalBusiness">
+    <section class="success" id="about" itemscope itemtype="http://schema.org/LocalBusiness"> <!-- Micro-Semantics (RDFa and Microdata) -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <!-- AÑADIR itemprop="name" -->
-                    <h2 itemprop="name">Acerca de...</h2>
+                    <h2 itemprop="name">Acerca de...</h2> <!-- Micro-Semantics (RDFa and Microdata) -->
                     <hr class="star-light">
                 </div>
             </div>
-            <div class="row">
-                <!-- Micro-Semantics (RDFa and Microdata): AÑADIR itemprop="description" -->
-                <div class="col-lg-12 text-center" itemprop="description">
-                    <p>AgendaVue es un proyecto simple en VueJS.</p>
+            <div class="row" itemprop="description">
+                <div class="col-lg-12 text-center" >
+                    <p itemprop="description">AgendaVue es un proyecto simple en VueJS.</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
+    <footer class="text-center" itemscope itemtype="http://schema.org/WPFooter"> <!-- Micro-Semantics (RDFa and Microdata) -->
+        <div class="text-center">
+            <div class="footer-above">
+                <div class="container">
+                </div>
             </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyleft &copy; e-ghost 2019
-                        <!-- CAPACIDADES SOCIALES -->
-                        <div>
-                            <!-- Twitter -->
-                            <a href="https://twitter.com/deusto?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer">
-                                <i class="fa fa-twitter fa-2x"></i>
-                            </a>
-                            <!-- Facebook -->
-                            <a href="https://www.facebook.com/UDeusto/?locale=es_ES" target="_blank" rel="noopener noreferrer">
-                                <i class="fa fa-facebook fa-2x"></i>
-                            </a>                            
+            <div class="footer-below">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Copyleft &copy; e-ghost 2019
+                            <!-- CAPACIDADES SOCIALES -->
+                            <div itemscope itemtype="http://schema.org/Organization"> <!-- Micro-Semantics (RDFa and Microdata) -->                                
+                                <a href="https://twitter.com/deusto?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer"> <!-- Twitter -->
+                                    <i class="fa fa-twitter fa-2x" itemprop="sameAs"></i> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                </a>
+                                <a href="https://www.facebook.com/UDeusto/?locale=es_ES" target="_blank" rel="noopener noreferrer"> <!-- Facebook -->
+                                    <i class="fa fa-facebook fa-2x" itemprop="sameAs"></i> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                </a>                            
+                            </div>
                         </div>
                     </div>
                 </div>
