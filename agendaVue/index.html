@@ -124,25 +124,22 @@
                     <hr class="star-primary">
                 </div>
             </div>
-            <template v-for="(contacto, index) in contactos" >
-                <div class="row"  itemprop="itemList" itemscope itemtype="http://schema.org/Person"> <!-- Micro-Semantics (RDFa and Microdata) -->
-                    <div class="col-xs-4">
-                        <p itemprop="name">{{ contacto.nombre }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
-                    </div>
-                    <div class="col-xs-4">
-                        <p itemprop="email">{{ contacto.email }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
-                    </div>
-                    <div class="col-xs-3">
-                        <p itemprop="telephone">{{ contacto.telf }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
-                    </div>
-                    <div class="col-xs-1">
-                        <button class="btn btn-danger btn-sm" @click="borrarContacto(index)">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                    </div>
+            <div class="row" v-for="(contacto, index) in contactos" :key="index" itemprop="itemList" itemscope itemtype="http://schema.org/Person"> <!-- Micro-Semantics (RDFa and Microdata) -->
+                <div class="col-xs-4">
+                    <p itemprop="name">{{ contacto.nombre }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                 </div>
-            </template>
-            
+                <div class="col-xs-4">
+                    <p itemprop="email">{{ contacto.email }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                </div>
+                <div class="col-xs-3">
+                    <p itemprop="telephone">{{ contacto.telf }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                </div>
+                <div class="col-xs-1">
+                    <button class="btn btn-danger btn-sm" @click="borrarContacto(index)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+            </div>
             <div class="row" v-if="contactos.length === 0">
                 <div class="col-xs-12">
                     <p>No se ha encontrado ningún contacto.</p>
