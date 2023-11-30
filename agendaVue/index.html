@@ -29,14 +29,39 @@
 
 
     <!-- Web Data (JSON-LD) -->
-    <script type="application/ld+json">
-        {
-          "@context": "http://schema.org",
-          "@type": "Organization",
-          "name": "AgendaVue",
-          "description": "Agenda básica en Vue"
-        }
+    <!-- Organization -->
+<!-- ... (código existente) ... -->
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "AgendaVue",
+      "description": "Agenda básica en Vue",
+      "url": "irl",
+      "sameAs": [
+        "enlace",
+        "enlace"
+      ]
+    }
     </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "ItemList",
+      "name": "Contactos",
+      "itemListElement": [
+        {
+          "@type": "Person",
+          "name": "{{contacto.nombre}}",
+          "email": "{{contacto.email}}",
+          "telephone": "{{contacto.telf}}"
+        },
+      ]
+    }
+    </script>
+    
         
 </head>
 
