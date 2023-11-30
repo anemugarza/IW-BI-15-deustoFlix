@@ -26,6 +26,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
+    <!-- Web Data (JSON-LD) -->
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "name": "AgendaVue",
+          "description": "Agenda básica en Vue"
+        }
+    </script>
+        
 </head>
 
 <body id="page-top" class="index">
@@ -191,16 +203,19 @@
 
 
     <!-- About Section -->
-    <section class="success" id="about">
+    <!-- Micro-Semantics (RDFa and Microdata): AÑADIR itemscope itemtype -->
+    <section class="success" id="about" itemscope itemtype="http://schema.org/LocalBusiness">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Acerca de...</h2>
+                    <!-- AÑADIR itemprop="name" -->
+                    <h2 itemprop="name">Acerca de...</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <!-- Micro-Semantics (RDFa and Microdata): AÑADIR itemprop="description" -->
+                <div class="col-lg-12 text-center" itemprop="description">
                     <p>AgendaVue es un proyecto simple en VueJS.</p>
                 </div>
             </div>
