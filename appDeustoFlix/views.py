@@ -9,15 +9,18 @@ import json
 from django.utils.translation import gettext as _
 
 #devuelve el listado de generos
-class IndexGeneros(ListView):
+class IndexGeneros(ListView):#bien
 	model = Genero
 	template_name = 'generos.html'
 	queryset = Genero.objects.order_by('nombre')
-
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['hola'] = _('Hola')
+		return context
 
 
 #devuelve los datos de un genero
-class ShowGenero(DetailView):
+class ShowGenero(DetailView): #bien
 	model = Genero
 	template_name = 'genero.html'
 	def get_context_data(self, **kwargs):
@@ -28,15 +31,18 @@ class ShowGenero(DetailView):
 
 
 #devuelve el listado de peliculas
-class IndexPeliculas(ListView):
+class IndexPeliculas(ListView): #bien
 	model = Pelicula
 	queryset = Pelicula.objects.order_by('nombre')
 	template_name = 'peliculas.html'
-
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['hola'] = _('Hola')
+		return context
 
 
 #devuelve los datos de una pelicula
-class ShowPelicula(DetailView):
+class ShowPelicula(DetailView): #bien
 	model = Pelicula		
 	template_name = 'pelicula.html'
 	def get_context_data(self, **kwargs):
@@ -46,15 +52,18 @@ class ShowPelicula(DetailView):
 
 	
 #devuelve el listado de directores
-class IndexDirectores(ListView):
+class IndexDirectores(ListView): #no
 	model = Director
 	queryset = Director.objects.order_by('-nombre')
 	template_name = 'directores.html'
-
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['hola'] = _('Hola')
+		return context
 
 
 #devuelve los datos de un director
-class ShowDirector(DetailView):
+class ShowDirector(DetailView): #no
 	model = Director
 	template_name = 'director.html'
 	def get_context_data(self, **kwargs):
@@ -65,7 +74,7 @@ class ShowDirector(DetailView):
 
 
 #Devuelve la pelicula mas vista de cada genero
-def indexPortada(request):
+def indexPortada(request): #bien
 	peliculasMasVistas = []  # Una lista de objetos de modelo Pelicula
 
 	for genero in Genero.objects.all():

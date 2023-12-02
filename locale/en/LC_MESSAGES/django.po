@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-02 21:07+0100\n"
+"POT-Creation-Date: 2023-12-02 21:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,10 +28,12 @@ msgid "Películas"
 msgstr "Films"
 
 #: .\appDeustoFlix\templates\base.html:22
+#: .\appDeustoFlix\templates\generos.html:7
 msgid "Géneros"
 msgstr "Genre"
 
 #: .\appDeustoFlix\templates\base.html:23
+#: .\appDeustoFlix\templates\directores.html:7
 msgid "Directores"
 msgstr "Directors"
 
@@ -55,9 +57,7 @@ msgstr "Newsletter Suscription"
 msgid ""
 "Suscríbete para recibir actualizaciones sobre nuevas películas, ofertas "
 "especiales y más."
-msgstr ""
-"Subscribe to receive updates on new movies, offers" 
-"Specials and more."
+msgstr "Subscribe to receive updates on new movies, offersSpecials and more."
 
 #: .\appDeustoFlix\templates\base.html:53
 msgid "Suscribirse"
@@ -79,7 +79,7 @@ msgstr "NAME:"
 #, fuzzy
 #| msgid "FECHA ESTRENO:"
 msgid "FECHA NACIMIENTO:"
-msgstr "RELEASE DATE:"
+msgstr "BIRTH DATE:"
 
 #: .\appDeustoFlix\templates\director.html:14
 msgid "NACIONALIDAD:"
@@ -100,25 +100,49 @@ msgstr "Films directed by"
 msgid "No hay películas disponibles."
 msgstr "No films available"
 
+#: .\appDeustoFlix\templates\directores.html:8
+#, fuzzy
+#| msgid "No hay películas disponibles."
+msgid "Aquí te mostramos la lista de directores de cine disponibles"
+msgstr "Here is the list of available film directors"
+
+#: .\appDeustoFlix\templates\directores.html:27
+#, fuzzy
+#| msgid "No hay películas disponibles."
+msgid "No hay directores disponibles."
+msgstr "There are no directors available."
+
 #: .\appDeustoFlix\templates\genero.html:8
 #, fuzzy
 #| msgid "Aquí te mostramos información acerca de la película:"
 msgid "Aquí te mostramos información acerca del género:"
-msgstr "Here is some information about the movie:"
+msgstr "Here is some information about the genre:"
 
 #: .\appDeustoFlix\templates\genero.html:11
 msgid "APTO PARA TODOS LOS PÚBLICOS:"
-msgstr ""
+msgstr "SUITABLE FOR ALL AUDIENCES:"
 
 #: .\appDeustoFlix\templates\genero.html:16
 #, fuzzy
 #| msgid "Películas"
 msgid "Películas de"
-msgstr "Films"
+msgstr "Films of"
+
+#: .\appDeustoFlix\templates\generos.html:8
+#, fuzzy
+#| msgid "Aquí te mostramos información acerca de la película:"
+msgid "Aquí te mostramos la lista de géneros:"
+msgstr "Here is the list of genres:"
+
+#: .\appDeustoFlix\templates\generos.html:16
+#, fuzzy
+#| msgid "No hay películas disponibles."
+msgid "No hay géneros disponibles."
+msgstr "No genres available"
 
 #: .\appDeustoFlix\templates\index.html:8
 msgid "Películas más vistas de cada género"
-msgstr "Most watched films"
+msgstr "Most watched films of each genre"
 
 #: .\appDeustoFlix\templates\index.html:37
 msgid "Tu web ideal para buscar las películas más taquilleras"
@@ -153,9 +177,17 @@ msgstr "RELEASE DATE:"
 msgid "DURACIÓN:"
 msgstr "DURATION:"
 
+#: .\appDeustoFlix\templates\pelicula.html:23
+msgid "minutos"
+msgstr "minutes"
+
 #: .\appDeustoFlix\templates\pelicula.html:24
 msgid "RECOMENDACIÓN EDAD:"
 msgstr "AGE RECOMMENDATION:"
+
+#: .\appDeustoFlix\templates\pelicula.html:24
+msgid "años"
+msgstr "years"
 
 #: .\appDeustoFlix\templates\pelicula.html:25
 msgid "VISUALIZACIONES:"
@@ -167,8 +199,9 @@ msgstr "VIEWS:"
 msgid "Aquí te mostramos todas las películas disponibles"
 msgstr "No films available"
 
-#: .\appDeustoFlix\views.py:37 .\appDeustoFlix\views.py:48
-#: .\appDeustoFlix\views.py:80
+#: .\appDeustoFlix\views.py:18 .\appDeustoFlix\views.py:40
+#: .\appDeustoFlix\views.py:50 .\appDeustoFlix\views.py:61
+#: .\appDeustoFlix\views.py:85
 msgid "Hola"
 msgstr "Hello"
 

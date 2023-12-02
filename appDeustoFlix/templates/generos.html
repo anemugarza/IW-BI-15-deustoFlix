@@ -4,8 +4,8 @@
 
 {% block contenido %}
 <div class="portfolio__inner">
-    <h2 class="portfolio__title">{% trans'Géneros'%}</h2>
-    <p class="portfolio__descr">{%trans 'Aquí te mostramos la lista de géneros:'%}</p>
+    <h2 class="portfolio__title">{% trans 'Géneros' %}</h2>
+    <p class="portfolio__descr">{%trans 'Aquí te mostramos la lista de géneros:' %}</p>
     {% if object_list %}
         {% for genero in object_list %}
             <ul>
@@ -13,7 +13,7 @@
             </ul>
         {% endfor %}
     {% else %}
-        <p id="No_generos">{% trans 'No hay géneros disponibles.'%}</p>
+        <p id="No_generos">{% trans 'No hay géneros disponibles.' %}</p>
     {% endif %}
 </div>
 {% endblock %}
