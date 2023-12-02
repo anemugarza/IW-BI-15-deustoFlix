@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n%}
 {% load static %}
 
 {% block contenido %}
@@ -6,12 +7,12 @@
     <div class="infoEsp">
         <div class="info-left">
             <h2 class="portfolio__title">{{ director.nombre }}</h2>
-            <p class="portfolio__descr">Aquí te mostramos información acerca del director {{ director.nombre }}</p>
+            <p class="portfolio__descr">{%trans 'Aquí te mostramos información acerca del director'%} {{ director.nombre }}</p>
             <ul id="info_director">
-                <li><strong>NOMBRE:</strong> {{ director.nombre }}</li>
-                <li><strong>FECHA NACIMIENTO:</strong> {{ director.fecha_nacimiento }}</li>
-                <li><strong>NACIONALIDAD:</strong> {{ director.nacionalidad }}</li>
-                <li><strong>PREMIADO:</strong> {{ director.premiado }}</li>
+                <li><strong>{%trans 'NOMBRE:'%}</strong> {{ director.nombre }}</li>
+                <li><strong>{%trans 'FECHA NACIMIENTO:'%}</strong> {{ director.fecha_nacimiento }}</li>
+                <li><strong>{%trans 'NACIONALIDAD:'%}</strong> {{ director.nacionalidad }}</li>
+                <li><strong>{%trans 'PREMIADO:'%}</strong> {{ director.premiado }}</li>
             </ul>
         </div>
         <div class="image-right">
@@ -25,7 +26,7 @@
 </div>
 <br><br>
 <div class="portfolio__inner">
-    <p class="portfolio__descr"><u><strong>Películas dirigidas por {{ director.nombre }}</strong></u></p>
+    <p class="portfolio__descr"><u><strong>{%trans 'Películas dirigidas por'%} {{ director.nombre }}</strong></u></p>
     <div class="container">
         {% if peliculasDirector %}
             {% for pelicula in peliculasDirector %}
@@ -44,7 +45,7 @@
                 {% endif %}
             {% endfor %}
         {% else %}
-            <p id="No_peliculas">No hay películas disponibles.</p>
+            <p id="No_peliculas">{%trans 'No hay películas disponibles.'%}</p>
         {% endif %}
     </div>
 </div>

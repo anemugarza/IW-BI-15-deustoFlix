@@ -1,18 +1,19 @@
 {% extends "base.html" %}
+{%load i18n%}
 {% load static %}
 
 {% block contenido %}
 <div class="portfolio__inner">
     <h2 class="portfolio__title">{{ genero.nombre }}</h2>
-    <p class="portfolio__descr">Aquí te mostramos información acerca del género: {{ genero.nombre }}</p>
+    <p class="portfolio__descr">{%trans 'Aquí te mostramos información acerca del género:'%} {{ genero.nombre }}</p>
     <ul id="info_genero">
-        <li><strong>NOMBRE:</strong> {{ genero.nombre }}</li>
-        <li><strong>APTO PARA TODOS LOS PÚBLICOS:</strong> {{ genero.apto_para_todos }}</li>
+        <li><strong>{%trans 'NOMBRE:'%}</strong> {{ genero.nombre }}</li>
+        <li><strong>{%trans 'APTO PARA TODOS LOS PÚBLICOS:'%}</strong> {{ genero.apto_para_todos }}</li>
     </ul>
 </div>
 <br><br>
 <div class="portfolio__inner">
-    <p class="portfolio__descr"><u><strong>Películas de {{ genero.nombre }}</strong></u></p>
+    <p class="portfolio__descr"><u><strong>{%trans 'Películas de'%} {{ genero.nombre }}</strong></u></p>
     <div class="container">
         {% if peliculasGenero %}
             {% for pelicula in peliculasGenero %}
@@ -31,7 +32,7 @@
                 {% endif %}
             {% endfor %}
         {% else %}
-            <p id="No_peliculas">No hay películas disponibles.</p>
+            <p id="No_peliculas">{%trans 'No hay películas disponibles.'%}</p>
         {% endif %}
     </div>
 </div>

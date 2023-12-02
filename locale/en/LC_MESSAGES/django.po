@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-02 17:38+0100\n"
+"POT-Creation-Date: 2023-12-02 21:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,107 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\appDeustoFlix\templates\index.html:8
-msgid "Películas más vistas de cada género"
-msgstr "Most watched films"
+#: .\appDeustoFlix\templates\base.html:20
+msgid "Principal"
+msgstr "Main"
 
+#: .\appDeustoFlix\templates\base.html:21
+#: .\appDeustoFlix\templates\peliculas.html:7
+msgid "Películas"
+msgstr "Films"
+
+#: .\appDeustoFlix\templates\base.html:22
+msgid "Géneros"
+msgstr "Genre"
+
+#: .\appDeustoFlix\templates\base.html:23
+msgid "Directores"
+msgstr "Directors"
+
+#: .\appDeustoFlix\templates\base.html:44
+msgid "Contacto"
+msgstr "Contact"
+
+#: .\appDeustoFlix\templates\base.html:45
+msgid "Email: info@deustoFlix.com"
+msgstr "Email: info@deustoFlix.com"
+
+#: .\appDeustoFlix\templates\base.html:46
+msgid "Teléfono: +34 999 999 999"
+msgstr "Telephone Nº: +34 999 999 999"
+
+#: .\appDeustoFlix\templates\base.html:49
+msgid "Suscripción al Boletín"
+msgstr "Newsletter Suscription"
+
+#: .\appDeustoFlix\templates\base.html:50
+msgid ""
+"Suscríbete para recibir actualizaciones sobre nuevas películas, ofertas "
+"especiales y más."
+msgstr ""
+"Subscribe to receive updates on new movies, offers" 
+"Specials and more."
+
+#: .\appDeustoFlix\templates\base.html:53
+msgid "Suscribirse"
+msgstr "Subscribe"
+
+#: .\appDeustoFlix\templates\director.html:10
+#, fuzzy
+#| msgid "Aquí te mostramos información acerca de la película:"
+msgid "Aquí te mostramos información acerca del director"
+msgstr "Here is some information about the movie:"
+
+#: .\appDeustoFlix\templates\director.html:12
+#: .\appDeustoFlix\templates\genero.html:10
+#: .\appDeustoFlix\templates\pelicula.html:12
+msgid "NOMBRE:"
+msgstr "NAME:"
+
+#: .\appDeustoFlix\templates\director.html:13
+#, fuzzy
+#| msgid "FECHA ESTRENO:"
+msgid "FECHA NACIMIENTO:"
+msgstr "RELEASE DATE:"
+
+#: .\appDeustoFlix\templates\director.html:14
+msgid "NACIONALIDAD:"
+msgstr "NATIONALITY"
+
+#: .\appDeustoFlix\templates\director.html:15
+msgid "PREMIADO:"
+msgstr "AWARDED"
+
+#: .\appDeustoFlix\templates\director.html:29
+msgid "Películas dirigidas por"
+msgstr "Films directed by"
+
+#: .\appDeustoFlix\templates\director.html:48
+#: .\appDeustoFlix\templates\genero.html:35
 #: .\appDeustoFlix\templates\index.html:28
 #: .\appDeustoFlix\templates\peliculas.html:27
 msgid "No hay películas disponibles."
 msgstr "No films available"
+
+#: .\appDeustoFlix\templates\genero.html:8
+#, fuzzy
+#| msgid "Aquí te mostramos información acerca de la película:"
+msgid "Aquí te mostramos información acerca del género:"
+msgstr "Here is some information about the movie:"
+
+#: .\appDeustoFlix\templates\genero.html:11
+msgid "APTO PARA TODOS LOS PÚBLICOS:"
+msgstr ""
+
+#: .\appDeustoFlix\templates\genero.html:16
+#, fuzzy
+#| msgid "Películas"
+msgid "Películas de"
+msgstr "Films"
+
+#: .\appDeustoFlix\templates\index.html:8
+msgid "Películas más vistas de cada género"
+msgstr "Most watched films"
 
 #: .\appDeustoFlix\templates\index.html:37
 msgid "Tu web ideal para buscar las películas más taquilleras"
@@ -43,10 +136,6 @@ msgstr ""
 #: .\appDeustoFlix\templates\pelicula.html:10
 msgid "Aquí te mostramos información acerca de la película:"
 msgstr "Here is some information about the movie:"
-
-#: .\appDeustoFlix\templates\pelicula.html:12
-msgid "NOMBRE:"
-msgstr "NAME:"
 
 #: .\appDeustoFlix\templates\pelicula.html:13
 msgid "GENERO:"
@@ -72,17 +161,14 @@ msgstr "AGE RECOMMENDATION:"
 msgid "VISUALIZACIONES:"
 msgstr "VIEWS:"
 
-#: .\appDeustoFlix\templates\peliculas.html:7
-msgid "Películas"
-msgstr "Films"
-
 #: .\appDeustoFlix\templates\peliculas.html:8
 #, fuzzy
 #| msgid "No hay películas disponibles."
 msgid "Aquí te mostramos todas las películas disponibles"
 msgstr "No films available"
 
-#: .\appDeustoFlix\views.py:44 .\appDeustoFlix\views.py:76
+#: .\appDeustoFlix\views.py:37 .\appDeustoFlix\views.py:48
+#: .\appDeustoFlix\views.py:80
 msgid "Hola"
 msgstr "Hello"
 
