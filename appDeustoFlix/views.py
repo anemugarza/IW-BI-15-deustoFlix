@@ -6,6 +6,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 import json
 
+from django.utils.translation import gettext as _
+from django.utils.translation import get_language,activate, gettext
+
 
 #devuelve el listado de generos
 class IndexGeneros(ListView):
@@ -59,18 +62,29 @@ class ShowDirector(DetailView):
 
 
 #Devuelve la pelicula mas vista de cada genero
+from django.shortcuts import render
+from django.utils.translation import gettext as _, activate, get_language
+from .models import Genero, Pelicula
+
+
 def indexPortada(request):
-	peliculasMasVistas = []  # Una lista de objetos de modelo Pelicula
+    peliculasMasVistas = []
 
-	for genero in Genero.objects.all():
-		pelicula_mas_vista = Pelicula.objects.filter(genero=genero).order_by('-vecesVista').first()
-		if pelicula_mas_vista:
-			peliculasMasVistas.append(pelicula_mas_vista)
-	context = {"lista_peliculasMasVistas": peliculasMasVistas}
-	return render(request, "index.html", context)
- 
+    for genero in Genero.objects.all():
+        pelicula_mas_vista = Pelicula.objects.filter(genero=genero).order_by('-vecesVista').first()
+        if pelicula_mas_vista:
+            peliculasMasVistas.append(pelicula_mas_vista)
 
+    curl_language = get_language()
+    try:
+        activate('eu')  
+        trans_text = _("Películas más vistas de cada género")
+    finally:
+        activate(curl_language)
 
+    context = {"lista_peliculasMasVistas": peliculasMasVistas, "trans_text": trans_text}
+    
+    return render(request, "index.html", context)
 
 class Contacto(View):
     def get(self, request):
