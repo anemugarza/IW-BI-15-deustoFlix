@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block contenido %}
 <div class="portfolio__inner">
-    <h2 class="portfolio__title">Películas</h2>
-    <p class="portfolio__descr">Aquí te mostramos todas las películas disponibles</p>
+    <h2 class="portfolio__title"> {%trans 'Películas' %}</h2>
+    <p class="portfolio__descr">{%trans 'Aquí te mostramos todas las películas disponibles' %}</p>
     <div class="container">
         {% if object_list %}
             {% for pelicula in object_list %}
@@ -23,7 +24,7 @@
                 {% endif %}
             {% endfor %}
         {% else %}
-            <p id="No_peliculas">No hay películas disponibles.</p>
+            <p id="No_peliculas"> {%trans 'No hay películas disponibles.' %}</p>
         {% endif %}
     </div>
 </div>

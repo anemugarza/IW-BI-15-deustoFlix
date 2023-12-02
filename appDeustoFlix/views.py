@@ -6,6 +6,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 import json
 
+from django.utils.translation import gettext as _
 
 #devuelve el listado de generos
 class IndexGeneros(ListView):
@@ -38,6 +39,11 @@ class IndexPeliculas(ListView):
 class ShowPelicula(DetailView):
 	model = Pelicula		
 	template_name = 'pelicula.html'
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['hola'] = _('Hola')
+		return context
+
 	
 #devuelve el listado de directores
 class IndexDirectores(ListView):
@@ -66,7 +72,8 @@ def indexPortada(request):
 		pelicula_mas_vista = Pelicula.objects.filter(genero=genero).order_by('-vecesVista').first()
 		if pelicula_mas_vista:
 			peliculasMasVistas.append(pelicula_mas_vista)
-	context = {"lista_peliculasMasVistas": peliculasMasVistas}
+	context = {"lista_peliculasMasVistas": peliculasMasVistas,
+				'hola': _('Hola')}
 	return render(request, "index.html", context)
  
 

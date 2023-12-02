@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block contenido %}
@@ -6,11 +7,11 @@
     <div class="infoEsp">
         <div class="info-left">
             <h2 class="portfolio__title">{{ pelicula.nombre }}</h2>
-            <p class="portfolio__descr">Aquí te mostramos información acerca de la película: {{ pais.nombre }}</p>
+            <p class="portfolio__descr">{% trans 'Aquí te mostramos información acerca de la película:' %} {{ pais.nombre }}</p>
             <ul id="info_pais">
-                <li><strong>NOMBRE:</strong> {{ pelicula.nombre }}</li>
-                <li><strong>GENERO:</strong> <a href="{% url 'ShowGenero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
-                <li><strong>DIRECTOR(ES):</strong></li>
+                <li><strong>{% trans 'NOMBRE:' %}</strong> {{ pelicula.nombre }}</li>
+                <li><strong>{% trans 'GENERO:' %}</strong> <a href="{% url 'ShowGenero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
+                <li><strong>{% trans 'DIRECTOR(ES): ' %}</strong></li>
                 <li>
                     <ul id="directores">
                     {% for director in pelicula.director.all %}
@@ -18,10 +19,10 @@
                     {% endfor %}
                     </ul>
                 </li>
-                <li><strong>FECHA ESTRENO:</strong> {{ pelicula.fecha_estreno }}</li>
-                <li><strong>DURACIÓN:</strong> {{ pelicula.duracion }} minutos</li>
-                <li><strong>RECOMENDACIÓN EDAD:</strong> {{ pelicula.recomendacionEdad }} años</li>
-                <li><strong>VISUALIZACIONES:</strong> {{ pelicula.vecesVista }}</li>
+                <li><strong>{% trans 'FECHA ESTRENO:' %}</strong> {{ pelicula.fecha_estreno }}</li>
+                <li><strong>{% trans 'DURACIÓN:' %}</strong> {{ pelicula.duracion }} minutos</li>
+                <li><strong>{% trans 'RECOMENDACIÓN EDAD:' %}</strong> {{ pelicula.recomendacionEdad }} años</li>
+                <li><strong>{% trans 'VISUALIZACIONES:' %}</strong> {{ pelicula.vecesVista }}</li>
             </ul>
         </div>
         <div class="image-right">

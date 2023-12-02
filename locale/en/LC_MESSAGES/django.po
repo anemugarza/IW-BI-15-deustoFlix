@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-02 17:38+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\appDeustoFlix\templates\index.html:8
+msgid "Películas más vistas de cada género"
+msgstr "Most watched films"
+
+#: .\appDeustoFlix\templates\index.html:28
+#: .\appDeustoFlix\templates\peliculas.html:27
+msgid "No hay películas disponibles."
+msgstr "No films available"
+
+#: .\appDeustoFlix\templates\index.html:37
+msgid "Tu web ideal para buscar las películas más taquilleras"
+msgstr "Your ideal website to search for the highest-grossing movies"
+
+#: .\appDeustoFlix\templates\index.html:38
+msgid ""
+"La web donde podrás encontrar toda la información sobre las películas más "
+"taquilleras. Podrás buscar dependiendo de tu género o director preferidos."
+msgstr ""
+"The website where you can find all the information about the most important "
+"filmsBlockbusters. You'll be able to search depending on your preferred "
+"genre or director."
+
+#: .\appDeustoFlix\templates\pelicula.html:10
+msgid "Aquí te mostramos información acerca de la película:"
+msgstr "Here is some information about the movie:"
+
+#: .\appDeustoFlix\templates\pelicula.html:12
+msgid "NOMBRE:"
+msgstr "NAME:"
+
+#: .\appDeustoFlix\templates\pelicula.html:13
+msgid "GENERO:"
+msgstr "GENRE:"
+
+#: .\appDeustoFlix\templates\pelicula.html:14
+msgid "DIRECTOR(ES): "
+msgstr "DIRECTOR:"
+
+#: .\appDeustoFlix\templates\pelicula.html:22
+msgid "FECHA ESTRENO:"
+msgstr "RELEASE DATE:"
+
+#: .\appDeustoFlix\templates\pelicula.html:23
+msgid "DURACIÓN:"
+msgstr "DURATION:"
+
+#: .\appDeustoFlix\templates\pelicula.html:24
+msgid "RECOMENDACIÓN EDAD:"
+msgstr "AGE RECOMMENDATION:"
+
+#: .\appDeustoFlix\templates\pelicula.html:25
+msgid "VISUALIZACIONES:"
+msgstr "VIEWS:"
+
+#: .\appDeustoFlix\templates\peliculas.html:7
+msgid "Películas"
+msgstr "Films"
+
+#: .\appDeustoFlix\templates\peliculas.html:8
+#, fuzzy
+#| msgid "No hay películas disponibles."
+msgid "Aquí te mostramos todas las películas disponibles"
+msgstr "No films available"
+
+#: .\appDeustoFlix\views.py:44 .\appDeustoFlix\views.py:76
+msgid "Hola"
+msgstr "Hello"
+
+#: .\deustoFlix\settings.py:124
+msgid "English"
+msgstr ""
+
+#: .\deustoFlix\settings.py:125
+msgid "Spanish"
+msgstr ""
