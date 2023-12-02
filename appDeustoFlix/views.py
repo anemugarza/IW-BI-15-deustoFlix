@@ -68,26 +68,23 @@ from .models import Genero, Pelicula
 
 
 def indexPortada(request):
-	peliculasMasVistas = []  # Una lista de objetos de modelo Pelicula
+    peliculasMasVistas = []
 
-	trans = translate(language='eu')
-	
-	for genero in Genero.objects.all():
-		pelicula_mas_vista = Pelicula.objects.filter(genero=genero).order_by('-vecesVista').first()
-		if pelicula_mas_vista:
-			peliculasMasVistas.append(pelicula_mas_vista)
-	context = {"lista_peliculasMasVistas": peliculasMasVistas}
-	return render(request, "index.html", {'trans':trans})
- 
+    for genero in Genero.objects.all():
+        pelicula_mas_vista = Pelicula.objects.filter(genero=genero).order_by('-vecesVista').first()
+        if pelicula_mas_vista:
+            peliculasMasVistas.append(pelicula_mas_vista)
 
-def translate(language):
-	curl_language=get_language()
-	try:
-		activate(language)
-		text = gettext('Películas más vistas de cada género')
-	finally:
-		activate(curl_language)
-	return text
+    curl_language = get_language()
+    try:
+        activate('eu')  
+        trans_text = _("Películas más vistas de cada género")
+    finally:
+        activate(curl_language)
+
+    context = {"lista_peliculasMasVistas": peliculasMasVistas, "trans_text": trans_text}
+    
+    return render(request, "index.html", context)
 
 class Contacto(View):
     def get(self, request):
