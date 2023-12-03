@@ -161,36 +161,39 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <form name="sentMessage" id="contactForm" novalidate @submit.prevent="anyadirContacto"> <!-- AÑADIR @submit.prevent="anyadirContacto" -->
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label for="name" itemprop="name">Nombre</label> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                    <input v-model="nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name" required> <!-- AÑADIDO: V-MODEL -->
-                                    <p class="help-block text-danger"></p>
+                        <template>
+                            <form name="sentMessage" id="contactForm" novalidate @submit.prevent="anyadirContacto"> <!-- AÑADIR @submit.prevent="anyadirContacto" -->
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label for="name" itemprop="name">Nombre</label> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                        <input v-model="nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name" required> <!-- AÑADIDO: V-MODEL -->
+                                        <p class="help-block text-danger"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label for="email" itemprop="email">Email</label> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                    <input v-model="nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email" required> <!-- AÑADIDO: V-MODEL -->
-                                    <p class="help-block text-danger"></p>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label for="email" itemprop="email">Email</label> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                        <input v-model="nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email" required> <!-- AÑADIDO: V-MODEL -->
+                                        <p class="help-block text-danger"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row control-group">
-                                <div class="form-group col-xs-12 floating-label-form-group controls">
-                                    <label for="telf" itemprop="telephone">Teléfono</label> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                    <input v-model="nuevoContacto.telf" type="tel" class="form-control" placeholder="Número de teléfono" id="telf" required> <!-- AÑADIDO: V-MODEL -->
-                                    <p class="help-block text-danger"></p>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label for="telf" itemprop="telephone">Teléfono</label> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                        <input v-model="nuevoContacto.telf" type="tel" class="form-control" placeholder="Número de teléfono" id="telf" required> <!-- AÑADIDO: V-MODEL -->
+                                        <p class="help-block text-danger"></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <br>
-                            <div id="success"></div>
-                            <div class="row">
-                                <div class="form-group col-xs-12">
-                                    <button type="submit" class="btn btn-success btn-lg" itemprop="actionStatus">Añadir</button> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                <br>
+                                <div id="success"></div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg" itemprop="actionStatus">Añadir</button> <!-- Micro-Semantics (RDFa and Microdata) -->
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </template>
+
                     </div>
                 </div>
             </div>
