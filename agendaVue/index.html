@@ -29,35 +29,7 @@
 
 
     <!-- Web Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "name": "AgendaVue",
-      "description": "Agenda básica en Vue",
-      "url": "irl",
-      "sameAs": [
-        "enlace",
-        "enlace"
-      ]
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "ItemList",
-      "name": "Contactos",
-      "itemListElement": [
-        {
-          "@type": "Person",
-          "name": "{{contacto.nombre}}",
-          "email": "{{contacto.email}}",
-          "telephone": "{{contacto.telf}}"
-        },
-      ]
-    }
-    </script>
+
     
         
 </head>
@@ -190,6 +162,16 @@
                                         <button type="submit" class="btn btn-success btn-lg" itemprop="actionStatus">Añadir</button> <!-- Micro-Semantics (RDFa and Microdata) -->
                                     </div>
                                 </div>
+                                <!-- JSON-LD -->
+                                <script type="application/ld+json">
+                                    {
+                                        "@context": "http://schema.org",
+                                        "@type": "Person",
+                                        "name": "{{ nuevoContacto.nombre }}",
+                                        "email": "{{ nuevoContacto.email }}",
+                                        "telephone": "{{ nuevoContacto.telf }}"
+                                    }
+                                </script>
                             </form>
                         </template>
                     </div>
