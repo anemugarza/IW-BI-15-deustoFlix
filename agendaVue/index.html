@@ -116,8 +116,8 @@
     </header>
 
     <!-- Contactos Grid Section -->
-    <section id="contactos" itemscope itemtype="http://schema.org/ItemList"> <!-- Micro-Semantics (RDFa and Microdata) -->
-        <div class="container" itemprop="ItemList">
+    <section id="contactos" itemscope itemtype="http://schema.org/WebPage"> <!-- Micro-Semantics (RDFa and Microdata) -->
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 itemprop="name">Contactos</h2>
@@ -127,13 +127,13 @@
             <template>
                 <div class="row" v-for="(contacto, index) in contactos" itemprop="itemList" itemscope itemtype="http://schema.org/Person"> <!-- Micro-Semantics (RDFa and Microdata) -->
                     <div class="col-xs-4">
-                        <p itemprop="name">{{ contacto.nombre }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p itemprop="name">{{contacto.nombre}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                     </div>
                     <div class="col-xs-4">
-                        <p itemprop="email">{{ contacto.email }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p itemprop="email">{{contacto.email}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                     </div>
                     <div class="col-xs-3">
-                        <p itemprop="telephone">{{ contacto.telf }}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p itemprop="telephone">{{contacto.telf}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                     </div>
                     <div class="col-xs-1">
                         <button class="btn btn-danger btn-sm" @click="borrarContacto(index)">
@@ -151,7 +151,7 @@
 
 
         <!-- Añadir nuevo Section -->
-        <section id="nuevo" itemscope itemtype="http://schema.org/AddAction"> <!-- Micro-Semantics (RDFa and Microdata) -->
+        <section id="nuevo" itemscope itemtype="http://schema.org/CreativeWork"> <!-- Micro-Semantics (RDFa and Microdata) -->
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
@@ -202,46 +202,45 @@
 
 
     <!-- About Section -->
-    <section class="success" id="about" itemscope itemtype="http://schema.org/LocalBusiness"> <!-- Micro-Semantics (RDFa and Microdata) -->
+    <section class="success" id="about" itemscope itemtype="http://schema.org/AboutPage"> <!-- Micro-Semantics (RDFa and Microdata) -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 itemprop="name">Acerca de...</h2> <!-- Micro-Semantics (RDFa and Microdata) -->
+                    <h2 itemprop="headline">Acerca de...</h2> <!-- Micro-Semantics (RDFa and Microdata) -->
                     <hr class="star-light">
                 </div>
             </div>
-            <div class="row" itemprop="description">
+            <div class="row">
                 <div class="col-lg-12 text-center" >
                     <p itemprop="description">AgendaVue es un proyecto simple en VueJS.</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                 </div>
             </div>
         </div>
     </section>
+    <!-- el itemprop="description" no se si va en class=container o class=col-lg.... MICRO-SEMANTICS -->
 
     <!-- Footer -->
-    <footer class="text-center" itemscope itemtype="http://schema.org/WPFooter"> <!-- Micro-Semantics (RDFa and Microdata) -->
-        <div class="text-center">
-            <div class="footer-above">
-                <div class="container">
-                </div>
+    <footer class="text-center" itemscope itemtype="http://schema.org/Organization"> <!-- Micro-Semantics (RDFa and Microdata) -->
+        <div class="footer-above">
+            <div class="container">
             </div>
-            <div class="footer-below">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            Copyleft &copy; e-ghost 2019
-                            <!-- CAPACIDADES SOCIALES -->
-                            <div itemscope itemtype="http://schema.org/Organization"> <!-- Micro-Semantics (RDFa and Microdata) -->                                
-                                <a href="https://twitter.com/deusto?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer"> <!-- Twitter -->
-                                    <i class="fa fa-twitter fa-2x" itemprop="sameAs"></i> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                </a>
-                                <a href="https://www.facebook.com/UDeusto/?locale=es_ES" target="_blank" rel="noopener noreferrer"> <!-- Facebook -->
-                                    <i class="fa fa-facebook fa-2x" itemprop="sameAs"></i> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                </a>     
-                                <a href="https://www.instagram.com/udeusto/?hl=es" target="_blank" rel="noopener noreferrer"> <!-- Instagram -->
-                                    <i class="fa fa-instagram fa-2x" itemprop="sameAs"></i> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                </a>                       
-                            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyleft &copy; e-ghost 2019
+                        <!-- CAPACIDADES SOCIALES -->
+                        <div itemscope itemtype="http://schema.org/Organization"> <!-- Micro-Semantics (RDFa and Microdata) -->                                
+                            <a href="https://twitter.com/deusto?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer"> <!-- Twitter -->
+                                <i class="fa fa-twitter fa-2x" itemprop="sameAs"></i> <!-- Micro-Semantics (RDFa and Microdata) -->
+                            </a>
+                            <a href="https://www.facebook.com/UDeusto/?locale=es_ES" target="_blank" rel="noopener noreferrer"> <!-- Facebook -->
+                                <i class="fa fa-facebook fa-2x" itemprop="sameAs"></i> <!-- Micro-Semantics (RDFa and Microdata) -->
+                            </a>     
+                            <a href="https://www.instagram.com/udeusto/?hl=es" target="_blank" rel="noopener noreferrer"> <!-- Instagram -->
+                                <i class="fa fa-instagram fa-2x" itemprop="sameAs"></i> <!-- Micro-Semantics (RDFa and Microdata) -->
+                            </a>                       
                         </div>
                     </div>
                 </div>
