@@ -26,19 +26,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
-    <!-- Web Data (JSON-LD) -->
-
-    
         
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" itemscope itemtype="http://schema.org/WebPageElement">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top"> 
-        <div class="container">
+        <div class="container"  itemscope itemtype="http://schema.org/SiteNavigationElement">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -76,7 +71,7 @@
     </nav>
 
     <!-- Header -->
-    <header>
+    <header itemscope itemtype="http://schema.org/WPHeader">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -91,7 +86,7 @@
     </header>
 
     <!-- Contactos Grid Section -->
-    <section id="contactos" itemscope itemtype="http://schema.org/WebPage"> <!-- Micro-Semantics (RDFa and Microdata) -->
+    <section id="contactos" itemscope itemtype="http://schema.org/ItemList"> <!-- Micro-Semantics (RDFa and Microdata) -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -201,7 +196,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 itemprop="headline">Acerca de...</h2> <!-- Micro-Semantics (RDFa and Microdata) -->
+                    <h2 itemprop="nameç">Acerca de...</h2> <!-- Micro-Semantics (RDFa and Microdata) -->
                     <hr class="star-light">
                 </div>
             </div>
@@ -214,7 +209,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center" itemscope itemtype="http://schema.org/Organization"> <!-- Micro-Semantics (RDFa and Microdata) -->
+    <footer class="text-center" itemscope itemtype="http://schema.org/WPFooter"> <!-- Micro-Semantics (RDFa and Microdata) -->
         <div class="footer-above">
             <div class="container">
             </div>
@@ -253,8 +248,7 @@
     
     <!-- Vue -->
     <script src="js/vue.js"></script> 
-    <script src="js/agenda.js"></script> <!-- AÑADIDO -->
-
+    <script src="js/agenda.js"></script>
 
 </body>
 
