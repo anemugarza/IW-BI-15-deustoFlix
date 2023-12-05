@@ -86,7 +86,7 @@
     </header>
 
     <!-- Contactos Grid Section -->
-    <section id="contactos" itemscope itemtype="http://schema.org/ItemList"> <!-- Micro-Semantics (RDFa and Microdata) -->
+    <section id="contactos"> <!-- Micro-Semantics (RDFa and Microdata) -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -95,21 +95,31 @@
                 </div>
             </div>
             <template>
-                <div class="row" v-for="(contacto, index) in contactos" itemscope itemtype="http://schema.org/Person"> <!-- Micro-Semantics (RDFa and Microdata) -->
+                <div class="row" v-for="(contacto, index) in contactos" vocab="http://schema.org/" typeof="Person"> <!-- Micro-Semantics (RDFa and Microdata) -->
                     <div class="col-xs-4">
-                        <p itemprop="name">{{contacto.nombre}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p property="name">{{contacto.nombre}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                     </div>
                     <div class="col-xs-4">
-                        <p itemprop="email">{{contacto.email}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p property="email">{{contacto.email}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                     </div>
                     <div class="col-xs-3">
-                        <p itemprop="telephone">{{contacto.telf}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p property="telephone">{{contacto.telf}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
                     </div>
                     <div class="col-xs-1">
                         <button class="btn btn-danger btn-sm" @click="borrarContacto(index)">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </div>
+                    <!-- JSON-LD -->
+                    <script type="application/ld+json">
+                        {
+                            "@context": "http://schema.org",
+                            "@type": "Person",
+                            "name": "{{nuevoContacto.nombre}}",
+                            "email": "{{nuevoContacto.email}}",
+                            "telephone": "{{nuevoContacto.telf}}"
+                        }
+                    </script>
                 </div>
                 <div class="row" v-if="contactos.length === 0">
                     <div class="col-xs-12">
@@ -160,16 +170,7 @@
                                         <button type="submit" class="btn btn-success btn-lg" itemprop="actionStatus">Añadir</button> <!-- Micro-Semantics (RDFa and Microdata) -->
                                     </div>
                                 </div>
-                                <!-- JSON-LD -->
-                                <script type="application/ld+json">
-                                    {
-                                        "@context": "http://schema.org",
-                                        "@type": "Person",
-                                        "name": "{{nuevoContacto.nombre}}",
-                                        "email": "{{nuevoContacto.email}}",
-                                        "telephone": "{{nuevoContacto.telf}}"
-                                    }
-                                </script>
+
                             </form>
                         </template>
                     </div>
@@ -183,8 +184,20 @@
                     <div class="col-lg-12 text-center">
                         <h2 itemprop="name">Redes Sociales</h2> 
                         <hr class="star-primary">
-                            <a class="twitter-share-button" href="https://twitter.com/intent/tweet"> Tweet</a>
-                            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world"> Tweet</a>
+                            <!-- Embedded Tweets -->
+                            <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Tbh programming memes are the worst because they represent the life of many programmers. 
+                                <a href="https://t.co/xBSBv3vQHK">pic.twitter.com/xBSBv3vQHK</a>
+                            </p>&mdash; Arbjon Marasheviq🇦🇱 (@TheFaceOfCode) <a href="https://twitter.com/TheFaceOfCode/status/1730136492280787306?ref_src=twsrc%5Etfw">November 30, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                            <blockquote class="twitter-tweet" data-theme="dark">
+                                <p lang="en" dir="ltr">winter ❄ 
+                                    <a href="https://t.co/3Xm46dY3fT">pic.twitter.com/3Xm46dY3fT</a>
+                                </p>&mdash; poetical photos. (@poeticalphotos) <a href="https://twitter.com/poeticalphotos/status/1731752605913686150?ref_src=twsrc%5Etfw">December 4, 2023</a>
+                            </blockquote> 
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                            <!-- Embedded buttons -->
+                            <a class="twitter-share-button" href="https://t.co/3Xm46dY3fT" data-size="large">Tweet to @poeticalphotos</a>
+
                     </div>
                 </div>
             </div>
@@ -209,7 +222,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center" role="contentinfo"itemscope itemtype="http://schema.org/WPFooter"> <!-- Micro-Semantics (RDFa and Microdata) -->
+    <footer class="text-center" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter"> <!-- Micro-Semantics (RDFa and Microdata) -->
         <div class="footer-above">
             <div class="container">
             </div>
