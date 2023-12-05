@@ -4,7 +4,10 @@
 
 {% block contenido %}
 <div class="portfolio__inner">
-    {{hola}}
+    <p>
+        <a href="/es/"> Castellano</a>
+        <a href="/en/"> English</a>
+    </p>
     <h2 class="portfolio__title">{%trans 'Películas más vistas de cada género' %}</h2>
     <div class="container">
         {% if lista_peliculasMasVistas %}
