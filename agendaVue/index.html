@@ -26,10 +26,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-        
 </head>
 
-<body id="page-top" class="index" itemscope itemtype="http://schema.org/WebPageElement">
+<body id="page-top" class="index">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" itemscope itemtype="http://schema.org/SiteNavigationElement"> 
@@ -86,7 +85,7 @@
     </header>
 
     <!-- Contactos Grid Section -->
-    <section id="contactos"> <!-- Micro-Semantics (RDFa and Microdata) -->
+    <section id="contactos" itemscope itemtype="http://schema.org/Person"> 
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -95,15 +94,15 @@
                 </div>
             </div>
             <template>
-                <div class="row" v-for="(contacto, index) in contactos" vocab="http://schema.org/" typeof="Person"> <!-- Micro-Semantics (RDFa and Microdata) -->
+                <div class="row" v-for="(contacto, index) in contactos" vocab="http://schema.org/" typeof="Person"> 
                     <div class="col-xs-4">
-                        <p property="name">{{contacto.nombre}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p property="name">{{contacto.nombre}}</p> 
                     </div>
                     <div class="col-xs-4">
-                        <p property="email">{{contacto.email}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p property="email">{{contacto.email}}</p> 
                     </div>
                     <div class="col-xs-3">
-                        <p property="telephone">{{contacto.telf}}</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <p property="telephone">{{contacto.telf}}</p> 
                     </div>
                     <div class="col-xs-1">
                         <button class="btn btn-danger btn-sm" @click="borrarContacto(index)">
@@ -130,36 +129,36 @@
         </div>
 
         <!-- Añadir nuevo Section -->
-        <section id="nuevo" itemscope itemtype="http://schema.org/Person"> <!-- Micro-Semantics (RDFa and Microdata) -->
+        <section id="nuevo" itemscope itemtype="http://schema.org/Person"> 
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 itemprop="name">Añadir contacto</h2> <!-- Micro-Semantics (RDFa and Microdata) -->
+                        <h2 itemprop="name">Añadir contacto</h2> 
                         <hr class="star-primary">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <template>
-                            <form name="sentMessage" id="contactForm" novalidate @submit.prevent="anyadirContacto"> <!-- AÑADIR @submit.prevent="anyadirContacto" -->
+                            <form name="sentMessage" id="contactForm" novalidate @submit.prevent="anyadirContacto"> 
                                 <div class="row control-group">
                                     <div class="form-group col-xs-12 floating-label-form-group controls">
-                                        <label for="name" itemprop="name">Nombre</label> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                        <input v-model="nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name" required> <!-- AÑADIDO: V-MODEL -->
+                                        <label for="name" itemprop="name">Nombre</label> 
+                                        <input v-model="nuevoContacto.nombre" type="text" class="form-control" placeholder="Nombre" id="name" required> 
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="row control-group">
                                     <div class="form-group col-xs-12 floating-label-form-group controls">
-                                        <label for="email" itemprop="email">Email</label> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                        <input v-model="nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email" required> <!-- AÑADIDO: V-MODEL -->
+                                        <label for="email" itemprop="email">Email</label> 
+                                        <input v-model="nuevoContacto.email" type="email" class="form-control" placeholder="Email" id="email" required> 
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="row control-group">
                                     <div class="form-group col-xs-12 floating-label-form-group controls">
-                                        <label for="telf" itemprop="telephone">Teléfono</label> <!-- Micro-Semantics (RDFa and Microdata) -->
-                                        <input v-model="nuevoContacto.telf" type="tel" class="form-control" placeholder="Número de teléfono" id="telf" required> <!-- AÑADIDO: V-MODEL -->
+                                        <label for="telf" itemprop="telephone">Teléfono</label> 
+                                        <input v-model="nuevoContacto.telf" type="tel" class="form-control" placeholder="Número de teléfono" id="telf" required> 
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
@@ -170,83 +169,75 @@
                                         <button type="submit" class="btn btn-success btn-lg" itemprop="actionStatus">Añadir</button> <!-- Micro-Semantics (RDFa and Microdata) -->
                                     </div>
                                 </div>
-
                             </form>
                         </template>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Redes sociales section  -->
-        <section id="social">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2>Redes Sociales</h2> 
-                        <hr class="star-primary">
-                    </div>
-                    <!-- Twitter Scction-->
-                    <div id="tweet" class="col-lg-12 text-center">
-                        <h3>Twitter</h3>
-                        <!-- Embedded Tweets Section -->
-                        <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Tbh programming memes are the worst because they represent the life of many programmers. 
-                            <a href="https://t.co/xBSBv3vQHK">pic.twitter.com/xBSBv3vQHK</a>
-                        </p>&mdash; Arbjon Marasheviq🇦🇱 (@TheFaceOfCode) <a href="https://twitter.com/TheFaceOfCode/status/1730136492280787306?ref_src=twsrc%5Etfw">November 30, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        <!-- Embedded buttons Sections-->
-                        <!-- Twittear -->
-                        <a class="twitter-share-button"
-                        href="https://twitter.com/intent/tweet" 
-                        data-text="¡Echa un vistazo a este contenido increíble!"
-                        data-size="large"> Tweet</a>
-                        <!-- Solicitud de seguimiento  -->
-                        <a class="twitter-follow-button"
-                        href="https://twitter.com/deusto"
-                        data-size="large">
-                        Follow @deusto</a>
-                    </div>
-                    <!-- Facebook Section -->
-                    <div id="facebook-post" class="col-lg-12 text-center">
-                        <h3>Facebook</h3>
-                        <!-- Embedded Facebook Post Section -->
-                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fenespanol%2Fposts%2F3388915271122824%3A1113858882563392&show_text=true&width=500" width="500" height="498" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                        <!-- Share Button -->
-                        <div class="fb-share-button" data-href="https://www.facebook.com/enespanol/posts/3388915271122824:1113858882563392" data-layout="button_count" data-size="large">
-                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fenespanol%2Fposts%2F3388915271122824%3A1113858882563392&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-                        </div>
-                        
-                        <!-- Follow Button -->
-                        <div class="fb-follow" data-href="https://www.facebook.com/enespanol" data-layout="button_count" data-size="large">
-                            <a href="https://www.facebook.com/enespanol" class="fb-xfbml-parse-ignore">Follow</a>
-                        </div>
-                        
-                        </div>
-                    </div>
-                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0"></script>
-                    
-                </div>
-            </div>
-        </section>>
+        
     </section>
 
-    <!-- About Section -->
-    <section class="success" id="about" itemscope itemtype="http://schema.org/AboutPage"> <!-- Micro-Semantics (RDFa and Microdata) -->
+    <!-- Redes sociales section  -->
+    <section id="social">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 itemprop="nameç">Acerca de...</h2> <!-- Micro-Semantics (RDFa and Microdata) -->
+                    <h2>Redes Sociales</h2> 
+                    <hr class="star-primary">
+                </div>
+                <!-- Twitter Scction-->
+                <div id="twitter" class="col-lg-12 text-center">
+                    <h3>Twitter</h3>
+                    <!-- Embedded Tweets -->
+                    <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Tbh programming memes are the worst because they represent the life of many programmers. 
+                        <a href="https://t.co/xBSBv3vQHK">pic.twitter.com/xBSBv3vQHK</a>
+                    </p>&mdash; Arbjon Marasheviq🇦🇱 (@TheFaceOfCode) <a href="https://twitter.com/TheFaceOfCode/status/1730136492280787306?ref_src=twsrc%5Etfw">November 30, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <!-- Twittear - Embedded button -->
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet" data-text="¡Echa un vistazo a este contenido increíble!" data-size="large">Twittear</a>
+                    <!-- Solicitud de seguimiento - Embedded button -->
+                    <a class="twitter-follow-button" href="https://twitter.com/deusto" data-size="large">Follow @deusto</a>
+                </div>
+                <!-- Facebook Section -->
+                <div id="facebook" class="col-lg-12 text-center">
+                    <h3>Facebook</h3>
+                    <!-- SDK-->
+                    <div id="fb-root"></div> 
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v18.0" nonce="0lRej1rr"></script>
+                    <!-- Publicaciones insertadas -->
+                    <div class="fb-post col-lg-12" data-href="https://www.facebook.com/UDeusto/photos/a.466802962880/10157823946772881/?type=3&locale=ms_MY" data-width="500" data-show-text="true"></div>                        
+                    <!-- Boton "Compartir" -->
+                    <div class="fb-share-button col-lg-12" data-href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FUDeusto%2Fposts%2Fpfbid0DiSERpyvdrzvb2jQNnFvcA7rhQHEbF7cCgQcZDMdd1PN1dcC6xMARH35vCmbXGekl&amp;amp;show_text=true&amp;amp;width=500" data-layout="button" data-size="large">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fplugins%2Fpost.php%3Fhref%3Dhttps%253A%252F%252Fwww.facebook.com%252FUDeusto%252Fposts%252Fpfbid0DiSERpyvdrzvb2jQNnFvcA7rhQHEbF7cCgQcZDMdd1PN1dcC6xMARH35vCmbXGekl%26amp%253Bshow_text%3Dtrue%26amp%253Bwidth%3D500&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a>
+                    </div>
+                    <!-- Plugin de página -->
+                    <div class="fb-page col-lg-12"  data-href="https://www.facebook.com/UDeusto/?locale=es_ES" data-tabs="timeline" data-width="500" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/UDeusto/?locale=es_ES" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/UDeusto/?locale=es_ES">Universidad de Deusto</a></blockquote>
+                    </div>
+                </div>                    
+            </div>
+        </div> 
+    </section>
+
+    <!-- About Section -->
+    <section class="success" id="about" itemscope itemtype="http://schema.org/AboutPage"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 itemprop="name">Acerca de...</h2> 
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 text-center" >
-                    <p itemprop="description">AgendaVue es un proyecto simple en VueJS.</p> <!-- Micro-Semantics (RDFa and Microdata) -->
+                    <p itemprop="description">AgendaVue es un proyecto simple en VueJS.</p> 
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center" itemscope itemtype="http://schema.org/WPFooter"> <!-- Micro-Semantics (RDFa and Microdata) -->
+    <footer class="text-center" itemscope itemtype="http://schema.org/WPFooter"> 
         <div class="footer-above">
             <div class="container">
             </div>
