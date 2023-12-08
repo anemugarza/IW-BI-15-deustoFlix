@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404, HttpResponseRedirect
 from django.http import HttpResponse
-from .models import Genero, Pelicula, Director
+from .models import Calificacion, Genero, Pelicula, Director
 from django.views import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 import json
-
+from .forms import TuFormularioDeCalificacion
 from django.utils.translation import gettext as _
 
 #devuelve el listado de generos
@@ -98,3 +98,42 @@ class Contacto(View):
         with open("mensajes.json", "a", encoding = "utf-8") as f:
             json.dump(request.POST, f, indent = 4)
         return HttpResponseRedirect("/") # Redirige a la página de inicio
+	
+
+
+
+class RateMovie(View):
+    def post(self, request, pk):
+        pelicula = get_object_or_404(Pelicula, pk=pk)
+        
+        # Obtén los datos del formulario
+        form = TuFormularioDeCalificacion(request.POST)
+        
+        if form.is_valid():
+            calificacion = form.cleaned_data['calificacion']
+            nombre_usuario = form.cleaned_data['nombre_usuario']
+            reseña = form.cleaned_data['reseña']
+            correo_electronico = form.cleaned_data['correo_electronico']
+            edad = form.cleaned_data['edad']
+
+            # Crear y guardar la calificación
+            nueva_calificacion = Calificacion(
+                pelicula=pelicula,
+                calificacion=calificacion,
+                nombre_usuario=nombre_usuario,
+                reseña=reseña,
+                correo_electronico=correo_electronico,
+                edad=edad
+            )
+            nueva_calificacion.save()
+
+            # Actualizar la calificación media
+            pelicula.total_calificaciones += 1
+            pelicula.calificacion_media = (
+                (pelicula.calificacion_media * (pelicula.total_calificaciones - 1) + calificacion)
+                / pelicula.total_calificaciones
+            )
+            pelicula.save()
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+

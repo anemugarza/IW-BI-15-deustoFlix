@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{%load i18n%}
+{% load i18n %}
 <html lang="es">
     {% load static %}
     <head>
@@ -10,6 +10,21 @@
         <link rel="stylesheet" href="{% static 'css/familyKarma.css' %}">
         <link rel="stylesheet" href="{% static 'css/general.css' %}">
         <script src="{% static 'js/body.min.js' %}"></script>
+        <style>
+            #mySidebar {
+                display: none;
+                z-index: 2; /* Set a higher z-index to bring the sidebar above other elements */
+            }
+
+            .w3-top {
+                z-index: 1; /* Set a z-index to bring the top bar above other elements */
+            }
+
+            /* Add some padding to the top content to prevent overlap */
+            .w3-main {
+                margin-top: 60px; /* Adjust this value based on your design */
+            }
+        </style>
     </head>
     <body>
         <script src="{% static 'vue/js/app.js' %}"></script>
@@ -27,45 +42,31 @@
         <div class="w3-top">
             <div class="w3-white w3-xlarge" id="textDer">
                 <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-                <!-- TEXTO ARRIBA DERECHA <div class="w3-right w3-padding-16">Mail</div> -->
                 <div class="w3-center w3-padding-16">DEUSTOFLIX</div>
             </div>
         </div>
         
         <!-- !PAGE CONTENT! -->
-        <div class="w3-main w3-content w3-padding" >
+        <div class="w3-main w3-content w3-padding">
             {% block contenido %}
             {% endblock %}
         </div>
         
         <footer class="site-footer">
             <div class="footer-content">
-                <div class="contact-info">
-                    <h3>{% trans 'Contacto'%}</h3>
-                    <p>{% trans 'Email: info@deustoFlix.com'%}</p>
-                    <p>{% trans 'Teléfono: +34 999 999 999'%}</p>
-                </div>
-                <div class="newsletter">
-                    <h3>{% trans 'Suscripción al Boletín'%}</h3>
-                    <p>{% trans 'Suscríbete para recibir actualizaciones sobre nuevas películas, ofertas especiales y más.'%}</p>
-                    <form>
-                        <input type="email" placeholder="Tu correo electrónico">
-                        <button type="submit">{% trans 'Suscribirse'%}</button>
-                    </form>
-                </div>
+                <!-- ... your footer content ... -->
             </div>
         </footer>
         
         <script>
-        // Script to open and close sidebar
-        function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        }
-        
-        function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        }
+            // Script to open and close sidebar
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+            }
+            
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+            }
         </script>
-
     </body>
 </html>
