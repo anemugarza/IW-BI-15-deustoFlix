@@ -1,19 +1,19 @@
 {% extends "base.html" %}
-{%load i18n%}
+{% load i18n %}
 {% load static %}
 
 {% block contenido %}
 <div class="portfolio__inner">
-    <h2 class="portfolio__title">{{ genero.nombre }}</h2>
-    <p class="portfolio__descr">{%trans 'Aquí te mostramos información acerca del género:'%} {{ genero.nombre }}</p>
+    <h2 class="portfolio__title">{% trans genero.nombre %}</h2>
+    <p class="portfolio__descr">{% trans 'Aquí te mostramos información acerca del género:' %} {{ genero.nombre }}</p>
     <ul id="info_genero">
-        <li><strong>{%trans 'NOMBRE:'%}</strong> {{ genero.nombre }}</li>
-        <li><strong>{%trans 'APTO PARA TODOS LOS PÚBLICOS:'%}</strong> {{ genero.apto_para_todos }}</li>
+        <li><strong>{% trans 'NOMBRE:' %}</strong> {{ genero.nombre }}</li>
+        <li><strong>{% trans 'APTO PARA TODOS LOS PÚBLICOS:' %}</strong> {{ genero.apto_para_todos }}</li>
     </ul>
 </div>
 <br><br>
 <div class="portfolio__inner">
-    <p class="portfolio__descr"><u><strong>{%trans 'Películas de'%} {{ genero.nombre }}</strong></u></p>
+    <p class="portfolio__descr"><u><strong>{% trans 'Películas de' %} {{ genero.nombre }}</strong></u></p>
     <div class="container">
         {% if peliculasGenero %}
             {% for pelicula in peliculasGenero %}
@@ -22,7 +22,7 @@
                     {% with pelicula.imagen.name|slice:"4:" as sin_img %}
                         {% with 'images/'|add:sin_img as imagen %}
                             <a href="{% url 'ShowPelicula' pelicula.id %}">
-                                <img src="{% static imagen %}" alt="Imagen Película">
+                                <img src="{% static imagen %}" alt="{% trans 'Imagen Película' %}">
                             </a>
                         {% endwith %}
                     {% endwith %}
@@ -32,7 +32,7 @@
                 {% endif %}
             {% endfor %}
         {% else %}
-            <p id="No_peliculas">{%trans 'No hay películas disponibles.'%}</p>
+            <p id="No_peliculas">{% trans 'No hay películas disponibles.' %}</p>
         {% endif %}
     </div>
 </div>
