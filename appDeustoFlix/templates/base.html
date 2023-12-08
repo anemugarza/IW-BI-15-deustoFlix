@@ -13,23 +13,23 @@
         <style>
             #mySidebar {
                 display: none;
-                z-index: 2; /* Set a higher z-index to bring the sidebar above other elements */
+                z-index: 2; 
             }
 
             .w3-top {
-                z-index: 1; /* Set a z-index to bring the top bar above other elements */
+                z-index: 1; 
             }
 
-            /* Add some padding to the top content to prevent overlap */
+            
             .w3-main {
-                margin-top: 60px; /* Adjust this value based on your design */
+                margin-top: 60px; 
             }
         </style>
     </head>
     <body>
         <script src="{% static 'vue/js/app.js' %}"></script>
 
-        <!-- Sidebar (hidden by default) -->
+        
         <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" id="mySidebar">
             <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">X</a>
             <a href="{% url 'indexPortada' %}" onclick="w3_close()" class="w3-bar-item w3-button"> {% trans 'Principal'%}</a>
@@ -38,7 +38,7 @@
             <a href="{% url 'IndexDirectores' %}" onclick="w3_close()" class="w3-bar-item w3-button">{% trans 'Directores'%}</a>
         </nav>
 
-        <!-- Top menu -->
+        
         <div class="w3-top">
             <div class="w3-white w3-xlarge" id="textDer">
                 <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
@@ -46,36 +46,37 @@
             </div>
         </div>
         
-        <!-- !PAGE CONTENT! -->
+       
         <div class="w3-main w3-content w3-padding">
             {% block contenido %}
             {% endblock %}
         </div>
-        
+    
+
         <footer class="site-footer">
             <div class="footer-content">
                 <footer class="site-footer">
                     <div class="footer-content">
                         <div class="contact-info">
-                            <h3>Contacto</h3>
-                            <p>Correo Electrónico: info@deustoFlix.com</p>
-                            <p>Teléfono: +123-456-789</p>
+                            <h3>{% trans 'Contacto' %}</h3>
+                            <p>{% trans 'Correo Electrónico' %}: info@deustoFlix.com</p>
+                            <p>{% trans 'Teléfono' %}: +123-456-789</p>
                         </div>
                         <div class="newsletter">
-                            <h3>Suscripción al Boletín</h3>
-                            <p>Suscríbete para recibir actualizaciones sobre nuevas películas, ofertas especiales y más.</p>
+                            <h3>{% trans 'Suscripción al Boletín' %}</h3>
+                            <p>{% trans 'Suscríbete para recibir actualizaciones sobre nuevas películas, ofertas especiales y más.' %}</p>
                             <form>
-                                <input type="email" placeholder="Tu correo electrónico">
-                                <button type="submit">Suscribirse</button>
+                                <input type="email" placeholder="{% trans 'Tu correo electrónico' %}">
+                                <button type="submit">{% trans 'Suscribirse' %}</button>
                             </form>
                         </div>
                     </div>
                 </footer>
             </div>
         </footer>
+
         
         <script>
-            // Script to open and close sidebar
             function w3_open() {
                 document.getElementById("mySidebar").style.display = "block";
             }

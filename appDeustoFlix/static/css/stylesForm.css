@@ -5,37 +5,67 @@
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-.rating-form h4 {
+  }
+  
+  .rating-form h4 {
     color: #333;
-}
-
-.rating-form label {
+  }
+  
+  .rating-form label {
     display: block;
     margin-bottom: 5px;
     color: #555;
-}
-
-.rating-form input,
-.rating-form textarea {
+  }
+  
+  .rating-form input,
+  .rating-form textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.rating-form button {
-    background-color: #4CAF50;
+  }
+  
+  .rating-form button {
+    background-color: #2c83e7;
     color: white;
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+  }
+  
+  .rating-form button:hover {
+    background-color: #3ca9d4;
+  }
+
+  
+
+  
+  .opiniones-container {
+    display: flex;
+    background-color: #f5f5f5;
+    padding: 10px;
 }
 
-.rating-form button:hover {
-    background-color: #45a049;
+.opinion {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 10px;
+    width: 300px; /* Ajusta el ancho según tus preferencias */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.opiniones-titulo h3 {
+    color: #888;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+
+
+  

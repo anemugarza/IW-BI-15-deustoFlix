@@ -2,69 +2,83 @@
 {% load i18n %}
 {% load static %}
 
+
 {% block contenido %}
 <html lang="es">
-<head>
-    <link rel="stylesheet" href="{% static 'css/stylesForm.css' %}">
-</head>
-<div class="portfolio__inner">
-    <div class="infoEsp">
-        <div class="info-left">
-            <h2 class="portfolio__title">{{ pelicula.nombre }}</h2>
-            <p class="portfolio__descr">{% trans 'Aquí te mostramos información acerca de la película:' %} {{ pais.nombre }}</p>
-            <ul id="info_pais">
-                <li><strong>{% trans 'NOMBRE:' %}</strong> {{ pelicula.nombre }}</li>
-                <li><strong>{% trans 'GENERO:' %}</strong> <a href="{% url 'ShowGenero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
-                <li><strong>{% trans 'DIRECTOR(ES): ' %}</strong></li>
-                <li>
-                    <ul id="directores">
-                    {% for director in pelicula.director.all %}
-                        <li><a href="{% url 'ShowDirector' director.id %}">{{ director.nombre }}</a></li>
-                    {% endfor %}
-                    </ul>
-                </li>
-                <li><strong>{% trans 'FECHA ESTRENO:' %}</strong> {{ pelicula.fecha_estreno }}</li>
-                <li><strong>{% trans 'DURACIÓN:' %}</strong> {% blocktrans with duracion=pelicula.duracion %}{{ duracion }} minutos{% endblocktrans %}</li>
-                <li><strong>{% trans 'RECOMENDACIÓN EDAD:' %}</strong> {% blocktrans with recomendacion_edad=pelicula.recomendacionEdad %}{{ recomendacion_edad }} años{% endblocktrans %}</li>
-                <li><strong>{% trans 'VISUALIZACIONES:' %}</strong> {{ pelicula.vecesVista }}</li>
-                <li><strong>{% trans 'CALIFICACIÓN MEDIA:' %}</strong> {{ pelicula.calificacion_media|default:"N/A" }}</li>
-            </ul>
-        </div>
-        <div class="image-right">
-            {% with pelicula.imagen.name|slice:"4:" as sin_img %}
-                {% with 'images/'|add:sin_img as imagen %}
-                    <img src="{% static imagen %}" alt="Imagen Pelicula">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/stylesForm.css' %}">
+    </head>
+    
+    <div class="portfolio__inner">
+        <div class="infoEsp">
+            <div class="info-left">
+                <h2 class="portfolio__title">{{ pelicula.nombre }}</h2>
+                <p class="portfolio__descr">{% trans 'Aquí te mostramos información acerca de la película:' %} {{ pais.nombre }}</p>
+                <ul id="info_pais">
+                    <li><strong>{% trans 'NOMBRE:' %}</strong> {{ pelicula.nombre }}</li>
+                    <li><strong>{% trans 'GENERO:' %}</strong> <a href="{% url 'ShowGenero' pelicula.genero.id %}">{{ pelicula.genero }}</a></li>
+                    <li><strong>{% trans 'DIRECTOR(ES): ' %}</strong></li>
+                    <li>
+                        <ul id="directores">
+                        {% for director in pelicula.director.all %}
+                            <li><a href="{% url 'ShowDirector' director.id %}">{{ director.nombre }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                    <li><strong>{% trans 'FECHA ESTRENO:' %}</strong> {{ pelicula.fecha_estreno }}</li>
+                    <li><strong>{% trans 'DURACIÓN:' %}</strong> {% blocktrans with duracion=pelicula.duracion %}{{ duracion }} minutos{% endblocktrans %}</li>
+                    <li><strong>{% trans 'RECOMENDACIÓN EDAD:' %}</strong> {% blocktrans with recomendacion_edad=pelicula.recomendacionEdad %}{{ recomendacion_edad }} años{% endblocktrans %}</li>
+                    <li><strong>{% trans 'VISUALIZACIONES:' %}</strong> {{ pelicula.vecesVista }}</li>
+                    <li><strong>{% trans 'CALIFICACIÓN MEDIA:' %}</strong> {{ pelicula.calificacion_media|default:"N/A" }}</li>
+                </ul>
+            </div>
+            <div class="image-right">
+                {% with pelicula.imagen.name|slice:"4:" as sin_img %}
+                    {% with 'images/'|add:sin_img as imagen %}
+                        <img src="{% static imagen %}" alt="Imagen Pelicula">
+                    {% endwith %}
                 {% endwith %}
-            {% endwith %}
+            </div>
         </div>
     </div>
-    <!-- En pelicula.html -->
-<!-- En pelicula.html -->
-<div class="rating-form">
-    <h4><strong>{% trans 'CALIFICAR Y RESEÑAR: ' %}</strong></h4>
-    <form method="post" action="{% url 'rate_movie' pelicula.id %}">
-        {% csrf_token %}
+    <div class="opiniones-titulo">
+        <h3>Opiniones de otros usuarios:</h3>
+    </div>
+    <div class="opiniones-container">
+        {% for calificacion in pelicula.calificaciones_pelicula.all %}
+            <div class="opinion">
+                <p><strong>{{ calificacion.nombre_usuario }} - {{ calificacion.calificacion }}</strong></p>
+                <p>{{ calificacion.reseña }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="rating-form">
+        <h4><strong>{% trans 'CALIFICAR Y RESEÑAR: ' %}</strong></h4>
+        <form method="post" action="{% url 'rate_movie' pelicula.id %}">
+            {% csrf_token %}
 
-        <label for="nombre_usuario">{% trans 'Nombre de usuario' %}:</label>
-        <input type="text" name="nombre_usuario" required>
+            <label for="nombre_usuario">{% trans 'Nombre de usuario' %}:</label>
+            <input type="text" name="nombre_usuario" required>
 
-        <label for="correo_electronico">{% trans 'Correo Electrónico' %}:</label>
-        <input type="email" name="correo_electronico" required>
+            <label for="correo_electronico">{% trans 'Correo Electrónico' %}:</label>
+            <input type="email" name="correo_electronico" required>
 
-        <label for="edad">{% trans 'Edad' %}:</label>
-        <input type="number" name="edad" min="0" required>
+            <label for="edad">{% trans 'Edad' %}:</label>
+            <input type="number" name="edad" min="0" required>
 
-        <label for="calificacion">{% trans 'Calificación (0-10)' %}:</label>
-        <input type="number" name="calificacion" min="0" max="10" step="0.1" required>
+            <label for="calificacion">{% trans 'Calificación (0-10)' %}:</label>
+            <input type="number" name="calificacion" min="0" max="10" step="0.1" required>
 
-        <label for="reseña">{% trans 'Reseña (opcional)' %}:</label>
-        <textarea name="reseña" rows="4" cols="50"></textarea>
+            <label for="reseña">{% trans 'Reseña (opcional)' %}:</label>
+            <textarea name="reseña" rows="4" cols="50"></textarea>
 
-        <button type="submit">{% trans 'Enviar' %}</button>
-    </form>
-</div>
+            <button type="submit">{% trans 'Enviar' %}</button>
+        </form>
+    </div>
+ 
 
-    
-
-{% endblock %}
+    {% endblock %}
 </html>

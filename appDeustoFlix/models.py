@@ -34,7 +34,7 @@ class Pelicula(models.Model):
     calificacion = models.FloatField(default=0.0)
     nombre_usuario = models.CharField(max_length=100, blank=True)
     reseña = models.TextField(blank=True)
-    calificacion_media = models.FloatField(default=0.0)
+    calificacion_media = models.DecimalField(default=0.0,max_digits=3,decimal_places=2)
     total_calificaciones = models.PositiveIntegerField(default=0)
     calificaciones = models.ManyToManyField('Calificacion', related_name='peliculas')
     correo_electronico = models.EmailField(blank=True, null=True)
