@@ -4,14 +4,6 @@
 
 
 {% block contenido %}
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <link rel="stylesheet" href="{% static 'css/stylesForm.css' %}">
-    </head>
-    
     <div class="portfolio__inner">
         <div class="infoEsp">
             <div class="info-left">
@@ -60,25 +52,23 @@
         <form method="post" action="{% url 'rate_movie' pelicula.id %}">
             {% csrf_token %}
 
-            <label for="nombre_usuario">{% trans 'Nombre de usuario' %}:</label>
+            <label id="nombre_usuario">{% trans 'Nombre de usuario' %}:</label>
             <input type="text" name="nombre_usuario" required>
 
-            <label for="correo_electronico">{% trans 'Correo Electrónico' %}:</label>
+            <label id="correo_electronico">{% trans 'Correo Electrónico' %}:</label>
             <input type="email" name="correo_electronico" required>
 
-            <label for="edad">{% trans 'Edad' %}:</label>
+            <label id="edad">{% trans 'Edad' %}:</label>
             <input type="number" name="edad" min="0" required>
 
-            <label for="calificacion">{% trans 'Calificación (0-10)' %}:</label>
+            <label id="calificacion">{% trans 'Calificación (0-10)' %}:</label>
             <input type="number" name="calificacion" min="0" max="10" step="0.1" required>
 
-            <label for="reseña">{% trans 'Reseña (opcional)' %}:</label>
+            <label id="reseña">{% trans 'Reseña (opcional)' %}:</label>
             <textarea name="reseña" rows="4" cols="50"></textarea>
 
             <button type="submit">{% trans 'Enviar' %}</button>
         </form>
     </div>
  
-
-    {% endblock %}
-</html>
+{% endblock %}

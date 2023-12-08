@@ -28,7 +28,7 @@
                     {% endwith %}
                 </div>
                 {% if forloop.counter|divisibleby:4 %}
-                    <div id="separador"></div>
+                    <div id="separador{{ pelicula.id }}"></div>
                 {% endif %}
             {% endfor %}
         {% else %}

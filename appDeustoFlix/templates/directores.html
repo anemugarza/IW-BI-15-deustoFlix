@@ -20,7 +20,7 @@
                     {% endwith %}  
                 </div>
                 {% if forloop.counter|divisibleby:4 %}
-                    <div id="separador"></div>
+                    <div id="separador{{ director.id }}"></div>
                 {% endif %}
             {% endfor %}
         {% else %}
