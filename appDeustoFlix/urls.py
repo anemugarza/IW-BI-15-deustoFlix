@@ -10,7 +10,5 @@ urlpatterns = [
     path("generos/", views.IndexGeneros.as_view(), name="IndexGeneros"),
     path("directores/", views.IndexDirectores.as_view(), name="IndexDirectores"),
      path('rate_movie/<int:pk>/', views.RateMovie.as_view(), name='rate_movie'),
-    path("contacto/", views.Contacto.as_view(), name="Contacto"),
-
 ]
 

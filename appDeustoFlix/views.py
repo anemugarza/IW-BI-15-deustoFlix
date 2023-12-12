@@ -87,21 +87,6 @@ def indexPortada(request): #bien
  
 
 
-
-class Contacto(View):
-    def get(self, request):
-        context = {}
-        return render(request, "contacto.html", context)
-    
-    def post(self, request):
-        # Añade el mensaje enviado (con sus metadatos) al registro
-        with open("mensajes.json", "a", encoding = "utf-8") as f:
-            json.dump(request.POST, f, indent = 4)
-        return HttpResponseRedirect("/") # Redirige a la página de inicio
-	
-
-
-
 class RateMovie(View):
     def post(self, request, pk):
         pelicula = get_object_or_404(Pelicula, pk=pk)
